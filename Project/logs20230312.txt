@@ -1,0 +1,45 @@
+2023-03-12 23:32:38.982 +02:00 [INF] Starting Web Host
+2023-03-12 23:32:40.922 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-12 23:32:41.329 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-12 23:32:41.340 +02:00 [INF] Hosting environment: Development
+2023-03-12 23:32:41.342 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-12 23:32:41.383 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-12 23:32:41.490 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-12 23:32:41.581 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-12 23:32:41.630 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-12 23:32:41.986 +02:00 [INF] Executed ViewResult - view Index executed in 368.4137ms.
+2023-03-12 23:32:41.997 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 410.2444ms
+2023-03-12 23:32:42.004 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-12 23:32:42.012 +02:00 [INF] HTTP GET / responded 200 in 561.4412 ms
+2023-03-12 23:32:42.092 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 713.5654ms
+2023-03-12 23:32:42.117 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/BootsWatch.css - -
+2023-03-12 23:32:42.117 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - -
+2023-03-12 23:32:42.117 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/site.css - -
+2023-03-12 23:32:42.159 +02:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-03-12 23:32:42.160 +02:00 [INF] The file /css/BootsWatch.css was not modified
+2023-03-12 23:32:42.169 +02:00 [INF] HTTP GET /css/BootsWatch.css responded 304 in 41.5726 ms
+2023-03-12 23:32:42.169 +02:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 304 in 39.6396 ms
+2023-03-12 23:32:42.178 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 61.2033ms
+2023-03-12 23:32:42.178 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/BootsWatch.css - - - 304 - text/css 61.2017ms
+2023-03-12 23:32:42.198 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\css\site.css'
+2023-03-12 23:32:42.203 +02:00 [INF] HTTP GET /css/site.css responded 200 in 68.1927 ms
+2023-03-12 23:32:42.208 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/site.css - - - 200 7 text/css 91.2663ms
+2023-03-12 23:32:42.215 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - -
+2023-03-12 23:32:42.220 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/Log.jpg - -
+2023-03-12 23:32:42.222 +02:00 [INF] The file /js/site.js was not modified
+2023-03-12 23:32:42.220 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-12 23:32:42.231 +02:00 [INF] HTTP GET /js/site.js responded 304 in 10.4906 ms
+2023-03-12 23:32:42.227 +02:00 [INF] The file /images/Log.jpg was not modified
+2023-03-12 23:32:42.243 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - - - 304 - application/javascript 25.7501ms
+2023-03-12 23:32:42.243 +02:00 [INF] HTTP GET /images/Log.jpg responded 304 in 16.6961 ms
+2023-03-12 23:32:42.254 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/Log.jpg - - - 304 - image/jpeg 33.9872ms
+2023-03-12 23:32:42.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/attend.jpg - -
+2023-03-12 23:32:42.267 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 46.0573ms
+2023-03-12 23:32:42.274 +02:00 [INF] The file /images/attend.jpg was not modified
+2023-03-12 23:32:42.279 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-12 23:32:42.284 +02:00 [INF] HTTP GET /images/attend.jpg responded 304 in 10.1271 ms
+2023-03-12 23:32:42.279 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-12 23:32:42.295 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/attend.jpg - - - 304 - image/jpeg 31.5093ms
+2023-03-12 23:32:42.303 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 5.3548 ms
+2023-03-12 23:32:42.311 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 33.0795ms
+2023-03-12 23:32:42.407 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 127.8267ms
