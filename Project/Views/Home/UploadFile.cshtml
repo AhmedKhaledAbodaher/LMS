@@ -1,0 +1,39 @@
+﻿@model UploadFileViewModel
+@{
+    ViewData["Title"] = "UploadFile";
+}
+
+<h1>UploadFile</h1>
+
+  <form enctype="multipart/form-data" asp-action="Create">
+
+<div class="form-group">
+        <label asp-for="CtegoryName" class="form-label mt-4">Category Name</label>
+        <input asp-for="CtegoryName" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <span asp-validation-for="CtegoryName" class="text-danger"></span>
+
+</div>
+<div class="form-group">
+        <label asp-for="File" class="form-label mt-4">Upload File</label>
+        <input asp-for="File" class="form-control custom-file-input" type="file" id="formFile">
+</div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        //while uploading file it used to bind file name to the lable selector
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+
+
+}

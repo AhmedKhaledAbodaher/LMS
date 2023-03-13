@@ -64,3 +64,445 @@
 2023-03-13 17:14:06.983 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 32.5547ms
 2023-03-13 17:14:06.987 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 38.0757ms
 2023-03-13 17:14:07.053 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.5595ms
+2023-03-13 19:02:37.830 +02:00 [INF] Starting Web Host
+2023-03-13 19:02:40.739 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 19:02:41.212 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 19:02:41.215 +02:00 [INF] Hosting environment: Development
+2023-03-13 19:02:41.222 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 19:02:41.267 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:02:41.351 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:02:41.405 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:02:41.432 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:02:41.700 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 286.155ms
+2023-03-13 19:02:41.704 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:02:41.709 +02:00 [ERR] HTTP GET / responded 500 in 392.7766 ms
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 19:02:41.811 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 19:02:42.055 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 500 - text/html;+charset=utf-8 790.7447ms
+2023-03-13 19:02:42.065 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:02:42.065 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:02:42.100 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 34.0167ms
+2023-03-13 19:02:42.181 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 115.7797ms
+2023-03-13 19:03:03.864 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:03:03.874 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:03.877 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:03:03.887 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:03:03.959 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 79.1061ms
+2023-03-13 19:03:03.963 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:03.966 +02:00 [ERR] HTTP GET / responded 500 in 92.6805 ms
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 19:03:03.971 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 19:03:04.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 500 - text/html;+charset=utf-8 149.8080ms
+2023-03-13 19:03:04.028 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:03:04.028 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:03:04.037 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.9607ms
+2023-03-13 19:03:04.078 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.0905ms
+2023-03-13 19:03:04.106 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/favicon.ico - -
+2023-03-13 19:03:04.116 +02:00 [INF] The file /favicon.ico was not modified
+2023-03-13 19:03:04.123 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 13.2526 ms
+2023-03-13 19:03:04.128 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/favicon.ico - - - 304 - image/x-icon 21.5519ms
+2023-03-13 19:03:05.185 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:03:05.190 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:05.194 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:03:05.198 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:03:05.258 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 60.4683ms
+2023-03-13 19:03:05.261 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:05.264 +02:00 [ERR] HTTP GET / responded 500 in 74.1021 ms
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 19:03:05.270 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot override the 'href' attribute for <a>. An <a> with a specified 'href' must not have attributes starting with 'asp-route-' or an 'asp-action', 'asp-controller', 'asp-area', 'asp-route', 'asp-protocol', 'asp-host', 'asp-fragment', 'asp-page' or 'asp-page-handler' attribute.
+   at Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Shared__Layout.<ExecuteAsync>b__24_1()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__Layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 19:03:05.302 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 500 - text/html;+charset=utf-8 117.1792ms
+2023-03-13 19:03:05.311 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:03:05.311 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:03:05.321 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.9438ms
+2023-03-13 19:03:05.367 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.4298ms
+2023-03-13 19:03:16.218 +02:00 [INF] Starting Web Host
+2023-03-13 19:03:18.370 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 19:03:18.673 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 19:03:18.684 +02:00 [INF] Hosting environment: Development
+2023-03-13 19:03:18.687 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 19:03:18.732 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:03:18.832 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:18.902 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:03:18.936 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:03:19.242 +02:00 [INF] Executed ViewResult - view Index executed in 311.7871ms.
+2023-03-13 19:03:19.250 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 344.7461ms
+2023-03-13 19:03:19.254 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:03:19.260 +02:00 [INF] HTTP GET / responded 200 in 474.3722 ms
+2023-03-13 19:03:19.310 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 582.9385ms
+2023-03-13 19:03:19.336 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/attend.jpg - -
+2023-03-13 19:03:19.338 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:03:19.339 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/site.css - -
+2023-03-13 19:03:19.350 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 19:03:19.344 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - -
+2023-03-13 19:03:19.352 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:03:19.372 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 9.7158 ms
+2023-03-13 19:03:19.377 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 27.0546ms
+2023-03-13 19:03:19.381 +02:00 [INF] The file /js/site.js was not modified
+2023-03-13 19:03:19.381 +02:00 [INF] The file /css/site.css was not modified
+2023-03-13 19:03:19.383 +02:00 [INF] The file /images/attend.jpg was not modified
+2023-03-13 19:03:19.387 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 50.0522ms
+2023-03-13 19:03:19.395 +02:00 [INF] HTTP GET /css/site.css responded 304 in 42.6555 ms
+2023-03-13 19:03:19.395 +02:00 [INF] HTTP GET /js/site.js responded 304 in 25.5498 ms
+2023-03-13 19:03:19.395 +02:00 [INF] HTTP GET /images/attend.jpg responded 304 in 53.0138 ms
+2023-03-13 19:03:19.402 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - - - 304 - application/javascript 57.9996ms
+2023-03-13 19:03:19.399 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/site.css - - - 304 - text/css 60.6598ms
+2023-03-13 19:03:19.406 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/attend.jpg - - - 304 - image/jpeg 70.1195ms
+2023-03-13 19:03:19.465 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 112.5588ms
+2023-03-13 19:03:50.835 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 19:03:50.849 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:03:50.854 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:03:50.862 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 19:03:50.898 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 40.9837ms.
+2023-03-13 19:03:50.902 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 44.8044ms
+2023-03-13 19:03:50.905 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:03:50.908 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 64.8651 ms
+2023-03-13 19:03:50.916 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 81.2590ms
+2023-03-13 19:03:50.935 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:03:50.940 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:03:50.943 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.9105ms
+2023-03-13 19:03:50.996 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.8497ms
+2023-03-13 19:08:14.489 +02:00 [INF] Starting Web Host
+2023-03-13 19:08:16.629 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 19:08:16.894 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 19:08:16.904 +02:00 [INF] Hosting environment: Development
+2023-03-13 19:08:16.906 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 19:08:16.944 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:08:17.013 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:08:17.055 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:08:17.078 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:08:17.349 +02:00 [INF] Executed ViewResult - view Index executed in 270.0623ms.
+2023-03-13 19:08:17.357 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 298.8609ms
+2023-03-13 19:08:17.360 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:08:17.365 +02:00 [INF] HTTP GET / responded 200 in 383.0879 ms
+2023-03-13 19:08:17.432 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 490.8824ms
+2023-03-13 19:08:17.480 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:08:17.489 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.2857ms
+2023-03-13 19:08:17.504 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 19:08:17.504 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:08:17.511 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 1.3695 ms
+2023-03-13 19:08:17.516 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 12.1582ms
+2023-03-13 19:08:17.580 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.0491ms
+2023-03-13 19:08:55.027 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 19:08:55.041 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:08:55.048 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:08:55.056 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 19:08:55.103 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 49.5136ms.
+2023-03-13 19:08:55.109 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 56.5856ms
+2023-03-13 19:08:55.112 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:08:55.116 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 82.0751 ms
+2023-03-13 19:08:55.134 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 108.1172ms
+2023-03-13 19:08:55.152 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:08:55.154 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:08:55.161 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.5299ms
+2023-03-13 19:08:55.215 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.8095ms
+2023-03-13 19:10:45.344 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 19:10:45.355 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 19:10:45.361 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:10:45.365 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 19:10:45.381 +02:00 [INF] Executed ViewResult - view UploadFile executed in 17.3629ms.
+2023-03-13 19:10:45.383 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 19.5472ms
+2023-03-13 19:10:45.385 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 19:10:45.387 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 33.4551 ms
+2023-03-13 19:10:45.391 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 47.2250ms
+2023-03-13 19:10:45.409 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:10:45.411 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:10:45.417 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.7886ms
+2023-03-13 19:10:45.476 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.8605ms
+2023-03-13 19:11:12.820 +02:00 [INF] Starting Web Host
+2023-03-13 19:11:14.703 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 19:11:15.058 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 19:11:15.068 +02:00 [INF] Hosting environment: Development
+2023-03-13 19:11:15.070 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 19:11:15.112 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:11:15.177 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:11:15.220 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:11:15.248 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:11:15.465 +02:00 [INF] Executed ViewResult - view Index executed in 221.0277ms.
+2023-03-13 19:11:15.473 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 249.1596ms
+2023-03-13 19:11:15.477 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:11:15.482 +02:00 [INF] HTTP GET / responded 200 in 333.4306 ms
+2023-03-13 19:11:15.524 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 416.0657ms
+2023-03-13 19:11:15.540 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:11:15.540 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 19:11:15.543 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:11:15.564 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 10.9971 ms
+2023-03-13 19:11:15.575 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 34.5669ms
+2023-03-13 19:11:15.582 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 37.8573ms
+2023-03-13 19:11:15.628 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 87.1012ms
+2023-03-13 19:11:20.214 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 19:11:20.219 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:11:20.224 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:11:20.228 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 19:11:20.253 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 25.6438ms.
+2023-03-13 19:11:20.256 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 28.6926ms
+2023-03-13 19:11:20.258 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:11:20.261 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 42.5350 ms
+2023-03-13 19:11:20.265 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 51.5432ms
+2023-03-13 19:11:20.278 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:11:20.278 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:11:20.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.8871ms
+2023-03-13 19:11:20.325 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.9716ms
+2023-03-13 19:11:51.431 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 19:11:51.439 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:11:51.442 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:11:51.445 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 19:11:51.464 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 19.3698ms.
+2023-03-13 19:11:51.470 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 24.9713ms
+2023-03-13 19:11:51.473 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:11:51.476 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 38.2910 ms
+2023-03-13 19:11:51.486 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 54.9508ms
+2023-03-13 19:11:51.528 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/BootsWatch.css - -
+2023-03-13 19:11:51.535 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/site.css - -
+2023-03-13 19:11:51.543 +02:00 [INF] The file /css/site.css was not modified
+2023-03-13 19:11:51.543 +02:00 [INF] The file /css/BootsWatch.css was not modified
+2023-03-13 19:11:51.550 +02:00 [INF] HTTP GET /css/BootsWatch.css responded 304 in 18.0254 ms
+2023-03-13 19:11:51.550 +02:00 [INF] HTTP GET /css/site.css responded 304 in 8.8242 ms
+2023-03-13 19:11:51.554 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/BootsWatch.css - - - 304 - text/css 26.0194ms
+2023-03-13 19:11:51.557 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/site.css - - - 304 - text/css 22.0581ms
+2023-03-13 19:11:51.629 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - -
+2023-03-13 19:11:51.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - -
+2023-03-13 19:11:51.636 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/Log.jpg - -
+2023-03-13 19:11:51.637 +02:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-03-13 19:11:51.642 +02:00 [INF] The file /images/Log.jpg was not modified
+2023-03-13 19:11:51.649 +02:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 304 in 11.9531 ms
+2023-03-13 19:11:51.651 +02:00 [INF] HTTP GET /images/Log.jpg responded 304 in 9.2310 ms
+2023-03-13 19:11:51.653 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 23.4016ms
+2023-03-13 19:11:51.668 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/Log.jpg - - - 304 - image/jpeg 31.2643ms
+2023-03-13 19:11:51.640 +02:00 [INF] The file /js/site.js was not modified
+2023-03-13 19:11:51.630 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:11:51.677 +02:00 [INF] HTTP GET /js/site.js responded 304 in 37.8559 ms
+2023-03-13 19:11:51.651 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:11:51.684 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - - - 304 - application/javascript 50.5447ms
+2023-03-13 19:11:51.687 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 56.5245ms
+2023-03-13 19:11:51.754 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 102.0834ms
+2023-03-13 19:11:52.001 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/favicon.ico - -
+2023-03-13 19:11:52.004 +02:00 [INF] The file /favicon.ico was not modified
+2023-03-13 19:11:52.007 +02:00 [INF] HTTP GET /favicon.ico responded 304 in 2.9492 ms
+2023-03-13 19:11:52.010 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/favicon.ico - - - 304 - image/x-icon 8.6073ms
+2023-03-13 19:15:36.385 +02:00 [INF] Starting Web Host
+2023-03-13 19:15:38.711 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 19:15:39.035 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 19:15:39.038 +02:00 [INF] Hosting environment: Development
+2023-03-13 19:15:39.040 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 19:15:39.097 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 19:15:39.170 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:15:39.216 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:15:39.240 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 19:15:39.512 +02:00 [INF] Executed ViewResult - view Index executed in 270.0075ms.
+2023-03-13 19:15:39.521 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 301.47ms
+2023-03-13 19:15:39.525 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 19:15:39.530 +02:00 [INF] HTTP GET / responded 200 in 389.1550 ms
+2023-03-13 19:15:39.581 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 488.3482ms
+2023-03-13 19:15:39.612 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:15:39.612 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 19:15:39.612 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:15:39.624 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 1.2323 ms
+2023-03-13 19:15:39.630 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 17.9980ms
+2023-03-13 19:15:39.636 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 23.6918ms
+2023-03-13 19:15:39.695 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.6881ms
+2023-03-13 19:16:19.644 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 19:16:19.658 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:16:19.663 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:16:19.673 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 19:16:19.702 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 32.1038ms.
+2023-03-13 19:16:19.705 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 39.5141ms
+2023-03-13 19:16:19.707 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 19:16:19.710 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 58.4061 ms
+2023-03-13 19:16:19.715 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 71.4390ms
+2023-03-13 19:16:19.730 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:16:19.730 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:16:19.745 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 15.0521ms
+2023-03-13 19:16:19.800 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.8739ms
+2023-03-13 19:16:20.779 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 19:16:20.785 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 19:16:20.791 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 19:16:20.795 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 19:16:20.806 +02:00 [INF] Executed ViewResult - view UploadFile executed in 11.7679ms.
+2023-03-13 19:16:20.808 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 14.4166ms
+2023-03-13 19:16:20.810 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 19:16:20.812 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 28.8026 ms
+2023-03-13 19:16:20.817 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 38.1292ms
+2023-03-13 19:16:20.827 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 19:16:20.827 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 19:16:20.836 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.5230ms
+2023-03-13 19:16:20.880 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.9993ms
