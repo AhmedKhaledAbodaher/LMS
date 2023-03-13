@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Repository.IRepo;
 using Repository.Repo;
 using RepositoryLayer.UnitOfWork;
-using ServicesLayer.Services.BaseService;
+using ServiceLayer.Service.BaseService;
 using ShredKernal.Generics;
 using ShredKernal.ViewModels;
 using System;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.BaseService.MaterialService
+namespace ServiceLayer.Service.MaterialService
 {
     public class MaterilaService : BaseAppService, IMaterilaService
     {
@@ -32,7 +32,7 @@ namespace ServiceLayer.BaseService.MaterialService
         public IUnitOfWork UnitOfWork { get; }
         public IMaterilaService Materila { get; }
         public IMaterialRepository Material { get; }
-        public IHostingEnvironment Host { get;  }
+        public IHostingEnvironment Host { get; }
         #endregion
 
         public async Task<ApiResponse<bool>> UploadFile(UploadFileViewModel file)
@@ -43,7 +43,7 @@ namespace ServiceLayer.BaseService.MaterialService
 
 
 
-            string UniqueFileNane = default(string);
+            string UniqueFileNane = default;
             if (file.File is not null)
             {
                 string UploaderFolder = Path.Combine(Host.WebRootPath, "Material");
@@ -62,8 +62,8 @@ namespace ServiceLayer.BaseService.MaterialService
                     CategoryName = file.CtegoryName
                 }
             };
-            await Material.InsertAsync(material);      
-            bool isSuccess= await UnitOfWork.SaveChangesAsync();
+            await Material.InsertAsync(material);
+            bool isSuccess = await UnitOfWork.SaveChangesAsync();
             if (isSuccess)
             {
                 await UnitOfWork.SaveChangesAsync();

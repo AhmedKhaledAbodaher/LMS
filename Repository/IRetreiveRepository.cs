@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using static SharedEnums;
 
-namespace RepositoryLayer.Repository
+namespace Repository
 {
     public interface IRetreiveRepository<T> where T : class
     {

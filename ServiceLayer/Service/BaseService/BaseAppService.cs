@@ -3,7 +3,7 @@
 using RepositoryLayer.UnitOfWork;
 
 
-namespace ServicesLayer.Services.BaseService
+namespace ServiceLayer.Service.BaseService
 {
     public class BaseAppService
     {
@@ -15,9 +15,9 @@ namespace ServicesLayer.Services.BaseService
 
         #region Ctor
 
-        public BaseAppService( IUnitOfWork unitOfWork, IMapper mapper)
+        public BaseAppService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-       
+
             UnitOfWork = unitOfWork;
             Mapper = mapper;
         }
@@ -25,9 +25,9 @@ namespace ServicesLayer.Services.BaseService
         #endregion
 
         #region Method
-      
 
-    
+
+
 
 
         #endregion

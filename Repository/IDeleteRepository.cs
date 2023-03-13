@@ -1,4 +1,4 @@
-﻿namespace RepositoryLayer.Repository
+﻿namespace Repository
 {
     public interface IDeleteRepository<T> where T : class
     {

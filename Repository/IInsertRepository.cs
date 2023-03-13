@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RepositoryLayer.Repository
+namespace Repository
 {
     public interface IInsertRepository<T> where T : class
     {

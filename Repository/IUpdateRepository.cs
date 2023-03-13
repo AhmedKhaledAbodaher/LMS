@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RepositoryLayer.Repository
+namespace Repository
 {
     public interface IUpdateRepository<T> where T : class
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project.Models;
-using ServiceLayer.BaseService.MaterialService;
+using ServiceLayer.Service.MaterialService;
 using ShredKernal.ViewModels;
 using System;
 using System.Collections.Generic;

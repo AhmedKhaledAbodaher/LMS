@@ -506,3 +506,792 @@ System.InvalidOperationException: Cannot override the 'href' attribute for <a>. 
 2023-03-13 19:16:20.827 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
 2023-03-13 19:16:20.836 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.5230ms
 2023-03-13 19:16:20.880 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.9993ms
+2023-03-13 21:10:46.918 +02:00 [INF] Starting Web Host
+2023-03-13 21:10:51.933 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:12:19.237 +02:00 [INF] Starting Web Host
+2023-03-13 21:12:21.185 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 21:12:21.583 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 21:12:21.586 +02:00 [INF] Hosting environment: Development
+2023-03-13 21:12:21.595 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 21:12:21.627 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 21:12:21.702 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:12:21.758 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:12:21.770 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 3.268ms
+2023-03-13 21:12:21.774 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:12:21.778 +02:00 [ERR] HTTP GET / responded 500 in 110.9945 ms
+System.InvalidOperationException: Unable to resolve service for type 'ServiceLayer.BaseService.MaterialService.IMaterilaService' while attempting to activate 'Project.Controllers.HomeController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method2(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 21:12:21.835 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ServiceLayer.BaseService.MaterialService.IMaterilaService' while attempting to activate 'Project.Controllers.HomeController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method2(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 21:12:22.064 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 500 - text/html;+charset=utf-8 439.2302ms
+2023-03-13 21:12:22.076 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:12:22.076 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:12:22.104 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 18.9705ms
+2023-03-13 21:12:22.178 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 101.3951ms
+2023-03-13 21:12:51.890 +02:00 [INF] Starting Web Host
+2023-03-13 21:12:53.953 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:13:58.995 +02:00 [INF] Starting Web Host
+2023-03-13 21:19:19.959 +02:00 [INF] Starting Web Host
+2023-03-13 21:19:43.174 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:22:19.180 +02:00 [INF] Starting Web Host
+2023-03-13 21:22:26.832 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.BaseService.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.BaseService.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.BaseService.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:39:37.432 +02:00 [INF] Starting Web Host
+2023-03-13 21:40:03.874 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Repository.IRepo.IMaterialRepository' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:41:11.878 +02:00 [INF] Starting Web Host
+2023-03-13 21:41:19.722 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:43:48.217 +02:00 [INF] Starting Web Host
+2023-03-13 21:46:30.951 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ServiceLayer.Service.MaterialService.IMaterilaService Lifetime: Scoped ImplementationType: ServiceLayer.Service.MaterialService.MaterilaService': Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'ServiceLayer.Service.MaterialService.MaterilaService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Project.Program.Main(String[] args) in E:\ADVANCED TLEVEL\Project\Project\Program.cs:line 27
+2023-03-13 21:47:13.421 +02:00 [INF] Starting Web Host
+2023-03-13 21:47:22.643 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 21:47:23.128 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 21:47:23.132 +02:00 [INF] Hosting environment: Development
+2023-03-13 21:47:23.135 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 21:47:23.193 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 21:47:23.291 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:47:23.374 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:47:24.902 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:47:24.979 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 21:47:25.259 +02:00 [INF] Executed ViewResult - view Index executed in 282.8474ms.
+2023-03-13 21:47:25.266 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1889.1649ms
+2023-03-13 21:47:25.270 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:47:25.275 +02:00 [INF] HTTP GET / responded 200 in 2027.2554 ms
+2023-03-13 21:47:25.337 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/BootsWatch.css - -
+2023-03-13 21:47:25.337 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/site.css - -
+2023-03-13 21:47:25.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - -
+2023-03-13 21:47:25.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/Log.jpg - -
+2023-03-13 21:47:25.348 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/attend.jpg - -
+2023-03-13 21:47:25.349 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 21:47:25.369 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:47:25.371 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 2157.6892ms
+2023-03-13 21:47:25.374 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 3.5401 ms
+2023-03-13 21:47:25.369 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:47:25.383 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - -
+2023-03-13 21:47:25.397 +02:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-03-13 21:47:25.399 +02:00 [INF] The file /js/site.js was not modified
+2023-03-13 21:47:25.399 +02:00 [INF] The file /images/Log.jpg was not modified
+2023-03-13 21:47:25.399 +02:00 [INF] The file /images/attend.jpg was not modified
+2023-03-13 21:47:25.399 +02:00 [INF] The file /css/site.css was not modified
+2023-03-13 21:47:25.399 +02:00 [INF] The file /css/BootsWatch.css was not modified
+2023-03-13 21:47:25.411 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 62.1547ms
+2023-03-13 21:47:25.420 +02:00 [INF] HTTP GET /images/attend.jpg responded 304 in 61.2411 ms
+2023-03-13 21:47:25.421 +02:00 [INF] HTTP GET /js/site.js responded 304 in 67.4771 ms
+2023-03-13 21:47:25.421 +02:00 [INF] HTTP GET /images/Log.jpg responded 304 in 65.5652 ms
+2023-03-13 21:47:25.430 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - - - 304 - application/javascript 82.7806ms
+2023-03-13 21:47:25.435 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/Log.jpg - - - 304 - image/jpeg 84.3451ms
+2023-03-13 21:47:25.425 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/attend.jpg - - - 304 - image/jpeg 77.3091ms
+2023-03-13 21:47:25.421 +02:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 304 in 33.8807 ms
+2023-03-13 21:47:25.420 +02:00 [INF] HTTP GET /css/site.css responded 304 in 69.2770 ms
+2023-03-13 21:47:25.421 +02:00 [INF] HTTP GET /css/BootsWatch.css responded 304 in 75.4919 ms
+2023-03-13 21:47:25.454 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 71.1881ms
+2023-03-13 21:47:25.459 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/site.css - - - 304 - text/css 121.7830ms
+2023-03-13 21:47:25.463 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/BootsWatch.css - - - 304 - text/css 125.3230ms
+2023-03-13 21:47:25.446 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 58.8611ms
+2023-03-13 21:47:25.539 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 169.4750ms
+2023-03-13 21:47:27.748 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 21:47:27.756 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:47:27.762 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:47:27.794 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:47:27.799 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 21:47:27.815 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 16.8181ms.
+2023-03-13 21:47:27.818 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 53.0386ms
+2023-03-13 21:47:27.821 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:47:27.824 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 70.4416 ms
+2023-03-13 21:47:27.835 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 87.7906ms
+2023-03-13 21:47:27.850 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:47:27.850 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:47:27.859 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.9594ms
+2023-03-13 21:47:27.917 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.9861ms
+2023-03-13 21:47:29.093 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 21:47:29.101 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:47:29.106 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:47:29.119 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:47:29.124 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 21:47:29.197 +02:00 [INF] Executed ViewResult - view UploadFile executed in 73.229ms.
+2023-03-13 21:47:29.203 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 94.1202ms
+2023-03-13 21:47:29.207 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:47:29.210 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 110.5961 ms
+2023-03-13 21:47:29.218 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 124.5034ms
+2023-03-13 21:47:29.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/lib/jquery-validation/dist/jquery.validate.min.js - -
+2023-03-13 21:47:29.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - -
+2023-03-13 21:47:29.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:47:29.248 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:47:29.248 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 5.2297ms
+2023-03-13 21:47:29.304 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.2633ms
+2023-03-13 21:47:29.343 +02:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2023-03-13 21:47:29.346 +02:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js responded 200 in 104.7831 ms
+2023-03-13 21:47:29.353 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - - - 200 5867 application/javascript 117.9270ms
+2023-03-13 21:47:29.357 +02:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2023-03-13 21:47:29.361 +02:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js responded 200 in 124.5319 ms
+2023-03-13 21:47:29.365 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/lib/jquery-validation/dist/jquery.validate.min.js - - - 200 23261 application/javascript 131.8613ms
+2023-03-13 21:52:05.523 +02:00 [INF] Starting Web Host
+2023-03-13 21:52:42.920 +02:00 [INF] Starting Web Host
+2023-03-13 21:52:44.315 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 21:52:44.601 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 21:52:44.604 +02:00 [INF] Hosting environment: Development
+2023-03-13 21:52:44.612 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 21:52:44.642 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 21:52:44.726 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:52:44.777 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:52:45.602 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:52:45.670 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 21:52:45.999 +02:00 [INF] Executed ViewResult - view Index executed in 325.64ms.
+2023-03-13 21:52:46.010 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1229.2026ms
+2023-03-13 21:52:46.016 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:52:46.024 +02:00 [INF] HTTP GET / responded 200 in 1332.1363 ms
+2023-03-13 21:52:46.109 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1468.9394ms
+2023-03-13 21:52:46.180 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:52:46.205 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 21.7543ms
+2023-03-13 21:52:46.241 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 21:52:46.245 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:52:46.251 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 4.8178 ms
+2023-03-13 21:52:46.258 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 16.9715ms
+2023-03-13 21:52:46.353 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 107.4527ms
+2023-03-13 21:53:45.240 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 21:53:45.252 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:53:45.256 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:53:45.297 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:53:45.302 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 21:53:45.329 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 27.6891ms.
+2023-03-13 21:53:45.336 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 77.6116ms
+2023-03-13 21:53:45.338 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:53:45.340 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 92.6119 ms
+2023-03-13 21:53:45.345 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 104.7189ms
+2023-03-13 21:53:45.358 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:53:45.358 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:53:45.369 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.7035ms
+2023-03-13 21:53:45.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.1256ms
+2023-03-13 21:53:47.034 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 21:53:47.039 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:53:47.043 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:53:47.054 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:53:47.059 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 21:53:47.105 +02:00 [INF] Executed ViewResult - view UploadFile executed in 46.4288ms.
+2023-03-13 21:53:47.107 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 60.854ms
+2023-03-13 21:53:47.110 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:53:47.112 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 74.2086 ms
+2023-03-13 21:53:47.117 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 83.4064ms
+2023-03-13 21:53:47.134 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:53:47.134 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:53:47.142 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.2345ms
+2023-03-13 21:53:47.182 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.4987ms
+2023-03-13 21:54:38.324 +02:00 [INF] Starting Web Host
+2023-03-13 21:54:48.484 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 21:54:48.748 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 21:54:48.758 +02:00 [INF] Hosting environment: Development
+2023-03-13 21:54:48.761 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 21:54:48.801 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 21:54:48.870 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:54:48.917 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:54:49.671 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:54:49.727 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 21:54:49.956 +02:00 [INF] Executed ViewResult - view Index executed in 230.368ms.
+2023-03-13 21:54:49.963 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1043.1001ms
+2023-03-13 21:54:49.967 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 21:54:49.972 +02:00 [INF] HTTP GET / responded 200 in 1134.1419 ms
+2023-03-13 21:54:50.019 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1220.7327ms
+2023-03-13 21:54:50.035 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:54:50.037 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 21:54:50.035 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:54:50.048 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 3.3389 ms
+2023-03-13 21:54:50.068 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 31.0036ms
+2023-03-13 21:54:50.085 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 39.9903ms
+2023-03-13 21:54:50.135 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 99.9379ms
+2023-03-13 21:54:55.421 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 21:54:55.427 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:54:55.432 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:54:55.463 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:54:55.468 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 21:54:55.485 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 17.8225ms.
+2023-03-13 21:54:55.487 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 51.5906ms
+2023-03-13 21:54:55.489 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 21:54:55.493 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 67.5524 ms
+2023-03-13 21:54:55.498 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 77.0659ms
+2023-03-13 21:54:55.517 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:54:55.517 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:54:55.526 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.5899ms
+2023-03-13 21:54:55.567 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.6196ms
+2023-03-13 21:54:56.650 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 21:54:56.655 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:54:56.661 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 21:54:56.672 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 21:54:56.677 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 21:54:56.724 +02:00 [INF] Executed ViewResult - view UploadFile executed in 47.2172ms.
+2023-03-13 21:54:56.727 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 62.9828ms
+2023-03-13 21:54:56.729 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 21:54:56.732 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 77.1790 ms
+2023-03-13 21:54:56.736 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 86.2083ms
+2023-03-13 21:54:56.754 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 21:54:56.754 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 21:54:56.764 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.2783ms
+2023-03-13 21:54:56.802 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.6289ms
+2023-03-13 22:01:26.681 +02:00 [INF] Starting Web Host
+2023-03-13 22:01:29.350 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:01:29.640 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:01:29.643 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:01:29.652 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:01:29.686 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:01:29.751 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:01:29.810 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:01:30.640 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:01:30.697 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:01:30.925 +02:00 [INF] Executed ViewResult - view Index executed in 230.2605ms.
+2023-03-13 22:01:30.934 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1120.6371ms
+2023-03-13 22:01:30.938 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:01:30.943 +02:00 [INF] HTTP GET / responded 200 in 1219.6723 ms
+2023-03-13 22:01:31.003 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1320.5574ms
+2023-03-13 22:01:31.021 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:01:31.025 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:01:31.025 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:01:31.043 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 1.4450 ms
+2023-03-13 22:01:31.051 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 26.3064ms
+2023-03-13 22:01:31.062 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 37.8164ms
+2023-03-13 22:01:31.114 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.6359ms
+2023-03-13 22:01:33.955 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:01:33.965 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:01:33.969 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:01:33.998 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:01:34.003 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:01:34.029 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 26.819ms.
+2023-03-13 22:01:34.034 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 61.7622ms
+2023-03-13 22:01:34.037 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:01:34.039 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 76.4508 ms
+2023-03-13 22:01:34.044 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 89.2475ms
+2023-03-13 22:01:34.057 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:01:34.057 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:01:34.066 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.7060ms
+2023-03-13 22:01:34.108 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.5784ms
+2023-03-13 22:01:36.179 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:01:36.184 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:01:36.188 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:01:36.198 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:01:36.203 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:01:36.261 +02:00 [INF] Executed ViewResult - view UploadFile executed in 58.6353ms.
+2023-03-13 22:01:36.263 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 72.4674ms
+2023-03-13 22:01:36.265 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:01:36.268 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 84.8893 ms
+2023-03-13 22:01:36.272 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 92.9867ms
+2023-03-13 22:01:36.291 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:01:36.292 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:01:36.300 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.0481ms
+2023-03-13 22:01:36.347 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 54.8052ms
+2023-03-13 22:06:36.899 +02:00 [INF] Starting Web Host
+2023-03-13 22:06:39.367 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:06:39.786 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:06:39.797 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:06:39.800 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:06:39.857 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:06:39.965 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:06:40.062 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:06:41.238 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:06:41.354 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:06:41.697 +02:00 [INF] Executed ViewResult - view Index executed in 353.008ms.
+2023-03-13 22:06:41.707 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1641.2174ms
+2023-03-13 22:06:41.712 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:06:41.718 +02:00 [INF] HTTP GET / responded 200 in 1810.6419 ms
+2023-03-13 22:06:41.808 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:06:41.819 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:06:41.826 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:06:41.864 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1954.7175ms
+2023-03-13 22:06:41.867 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 13.2557 ms
+2023-03-13 22:06:41.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 66.1185ms
+2023-03-13 22:06:41.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 88.2337ms
+2023-03-13 22:06:42.034 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 208.4005ms
+2023-03-13 22:06:44.783 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:06:44.791 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:06:44.798 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:06:44.836 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:06:44.841 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:06:44.858 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 18.6584ms.
+2023-03-13 22:06:44.861 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 59.8889ms
+2023-03-13 22:06:44.863 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:06:44.865 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 77.3298 ms
+2023-03-13 22:06:44.869 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 86.4519ms
+2023-03-13 22:06:44.884 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:06:44.884 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:06:44.892 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.5600ms
+2023-03-13 22:06:44.941 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.3419ms
+2023-03-13 22:06:45.783 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:06:45.790 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:06:45.794 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:06:45.810 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:06:45.814 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:06:45.858 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 61.4622ms
+2023-03-13 22:06:45.862 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:06:45.866 +02:00 [ERR] HTTP GET /Home/UploadFile responded 500 in 78.1976 ms
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/_Layout.cshtml': 'Cutome'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 22:06:45.915 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/_Layout.cshtml': 'Cutome'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 22:06:45.959 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 500 - text/html;+charset=utf-8 175.9625ms
+2023-03-13 22:06:45.968 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:06:45.968 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:06:45.976 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.0780ms
+2023-03-13 22:06:46.021 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.8903ms
+2023-03-13 22:08:07.930 +02:00 [INF] Starting Web Host
+2023-03-13 22:08:10.367 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:08:10.665 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:08:10.668 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:08:10.679 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:08:10.709 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:08:10.777 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:08:10.826 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:08:11.616 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:08:11.671 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:08:11.905 +02:00 [INF] Executed ViewResult - view Index executed in 233.1221ms.
+2023-03-13 22:08:11.912 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1083.5577ms
+2023-03-13 22:08:11.916 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:08:11.920 +02:00 [INF] HTTP GET / responded 200 in 1173.8767 ms
+2023-03-13 22:08:11.977 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1270.4467ms
+2023-03-13 22:08:11.996 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:08:12.000 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:08:12.001 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:08:12.021 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 10.5110 ms
+2023-03-13 22:08:12.026 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 25.5467ms
+2023-03-13 22:08:12.035 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 33.3172ms
+2023-03-13 22:08:12.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.4305ms
+2023-03-13 22:08:13.906 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:08:13.915 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:08:13.921 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:08:13.951 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:08:13.956 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:08:13.971 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 15.7847ms.
+2023-03-13 22:08:13.978 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 53.5561ms
+2023-03-13 22:08:13.981 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:08:13.984 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 70.9192 ms
+2023-03-13 22:08:13.991 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 84.6645ms
+2023-03-13 22:08:14.005 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:08:14.005 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:08:14.015 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.8351ms
+2023-03-13 22:08:14.063 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.7043ms
+2023-03-13 22:08:15.045 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:08:15.054 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:08:15.059 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:08:15.070 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:08:15.075 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:08:15.116 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 54.1813ms
+2023-03-13 22:08:15.119 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:08:15.123 +02:00 [ERR] HTTP GET /Home/UploadFile responded 500 in 73.1301 ms
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/_Layout.cshtml': 'Styles'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-03-13 22:08:15.180 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/_Layout.cshtml': 'Styles'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-13 22:08:15.239 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 500 - text/html;+charset=utf-8 193.6886ms
+2023-03-13 22:08:15.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:08:15.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:08:15.254 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 6.9110ms
+2023-03-13 22:08:15.300 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.2346ms
+2023-03-13 22:09:13.346 +02:00 [INF] Starting Web Host
+2023-03-13 22:09:17.150 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:09:17.446 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:09:17.456 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:09:17.459 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:09:17.494 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:09:17.554 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:09:17.603 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:09:18.462 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:09:18.528 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:09:18.819 +02:00 [INF] Executed ViewResult - view Index executed in 292.1065ms.
+2023-03-13 22:09:18.827 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1220.5727ms
+2023-03-13 22:09:18.832 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:09:18.839 +02:00 [INF] HTTP GET / responded 200 in 1308.6729 ms
+2023-03-13 22:09:18.896 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1404.0921ms
+2023-03-13 22:09:18.912 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:09:18.912 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:09:18.917 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:09:18.928 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 4.5371 ms
+2023-03-13 22:09:18.945 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 32.8050ms
+2023-03-13 22:09:18.974 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 46.1787ms
+2023-03-13 22:09:19.025 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 112.6078ms
+2023-03-13 22:09:21.243 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:09:21.249 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:09:21.253 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:09:21.284 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:09:21.291 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:09:21.310 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 20.1069ms.
+2023-03-13 22:09:21.316 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 59.972ms
+2023-03-13 22:09:21.318 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:09:21.320 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 72.9401 ms
+2023-03-13 22:09:21.326 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 82.7705ms
+2023-03-13 22:09:21.338 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:09:21.338 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:09:21.349 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.2567ms
+2023-03-13 22:09:21.393 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.1098ms
+2023-03-13 22:09:22.414 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:09:22.420 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:09:22.426 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:09:22.436 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:09:22.441 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:09:22.494 +02:00 [INF] Executed ViewResult - view UploadFile executed in 53.3319ms.
+2023-03-13 22:09:22.496 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 67.5269ms
+2023-03-13 22:09:22.498 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:09:22.501 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 81.1974 ms
+2023-03-13 22:09:22.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 92.4950ms
+2023-03-13 22:09:22.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/upload.css - -
+2023-03-13 22:09:22.523 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:09:22.526 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:09:22.531 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.9359ms
+2023-03-13 22:09:22.547 +02:00 [INF] Sending file. Request path: '/css/upload.css'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\css\upload.css'
+2023-03-13 22:09:22.550 +02:00 [INF] HTTP GET /css/upload.css responded 200 in 31.6297 ms
+2023-03-13 22:09:22.554 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/upload.css - - - 200 53 text/css 38.3607ms
+2023-03-13 22:09:22.579 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.6492ms
+2023-03-13 22:12:14.046 +02:00 [INF] Starting Web Host
+2023-03-13 22:12:21.031 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:12:21.311 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:12:21.321 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:12:21.323 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:12:21.359 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:12:21.421 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:12:21.468 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:12:22.272 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:12:22.329 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:12:22.554 +02:00 [INF] Executed ViewResult - view Index executed in 227.4897ms.
+2023-03-13 22:12:22.562 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1091.2201ms
+2023-03-13 22:12:22.567 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:12:22.573 +02:00 [INF] HTTP GET / responded 200 in 1178.4904 ms
+2023-03-13 22:12:22.636 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1276.4360ms
+2023-03-13 22:12:22.639 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:12:22.643 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:12:22.645 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:12:22.666 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 13.9829 ms
+2023-03-13 22:12:22.675 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 31.4418ms
+2023-03-13 22:12:22.693 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 36.9082ms
+2023-03-13 22:12:22.743 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 97.3400ms
+2023-03-13 22:12:27.051 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:12:27.059 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:12:27.064 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:12:27.102 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:12:27.107 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:12:27.131 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 25.0284ms.
+2023-03-13 22:12:27.139 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 71.6434ms
+2023-03-13 22:12:27.142 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:12:27.146 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 89.3460 ms
+2023-03-13 22:12:27.151 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 100.1438ms
+2023-03-13 22:12:27.165 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:12:27.165 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:12:27.175 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.7506ms
+2023-03-13 22:12:27.216 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.3247ms
+2023-03-13 22:12:28.050 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:12:28.058 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:12:28.061 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:12:28.075 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:12:28.079 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:12:28.129 +02:00 [INF] Executed ViewResult - view UploadFile executed in 50.7363ms.
+2023-03-13 22:12:28.132 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 66.754ms
+2023-03-13 22:12:28.134 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:12:28.137 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 80.9344 ms
+2023-03-13 22:12:28.144 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 94.3144ms
+2023-03-13 22:12:28.156 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/upload.css - -
+2023-03-13 22:12:28.164 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:12:28.167 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:12:28.171 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.2593ms
+2023-03-13 22:12:28.175 +02:00 [INF] The file /css/upload.css was not modified
+2023-03-13 22:12:28.185 +02:00 [INF] HTTP GET /css/upload.css responded 304 in 24.8267 ms
+2023-03-13 22:12:28.189 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/upload.css - - - 304 - text/css 33.5476ms
+2023-03-13 22:12:28.230 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.2771ms
+2023-03-13 22:13:41.518 +02:00 [INF] Starting Web Host
+2023-03-13 22:13:42.767 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-13 22:13:43.047 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 22:13:43.050 +02:00 [INF] Hosting environment: Development
+2023-03-13 22:13:43.059 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-03-13 22:13:43.087 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-03-13 22:13:43.153 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:13:43.208 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:13:43.984 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:13:44.045 +02:00 [INF] Executing ViewResult, running view Index.
+2023-03-13 22:13:44.279 +02:00 [INF] Executed ViewResult - view Index executed in 236.8265ms.
+2023-03-13 22:13:44.287 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1076.3305ms
+2023-03-13 22:13:44.291 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-03-13 22:13:44.296 +02:00 [INF] HTTP GET / responded 200 in 1172.7332 ms
+2023-03-13 22:13:44.347 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1262.2898ms
+2023-03-13 22:13:44.370 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:13:44.374 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:13:44.387 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/defaultimg.png - -
+2023-03-13 22:13:44.396 +02:00 [INF] HTTP GET /images/defaultimg.png responded 404 in 1.0119 ms
+2023-03-13 22:13:44.401 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/defaultimg.png - - - 404 - - 14.4665ms
+2023-03-13 22:13:44.410 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 35.0580ms
+2023-03-13 22:13:44.460 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 90.1995ms
+2023-03-13 22:13:51.164 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-03-13 22:13:51.172 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:13:51.179 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:13:51.211 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:13:51.215 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-03-13 22:13:51.238 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 23.1708ms.
+2023-03-13 22:13:51.241 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 59.2666ms
+2023-03-13 22:13:51.243 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-03-13 22:13:51.246 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 76.8128 ms
+2023-03-13 22:13:51.251 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 86.7519ms
+2023-03-13 22:13:51.263 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:13:51.263 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:13:51.272 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.6292ms
+2023-03-13 22:13:51.318 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.1569ms
+2023-03-13 22:13:52.193 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/UploadFile - -
+2023-03-13 22:13:52.201 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:13:52.206 +02:00 [INF] Route matched with {action = "UploadFile", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadFile() on controller Project.Controllers.HomeController (Project).
+2023-03-13 22:13:52.219 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-03-13 22:13:52.224 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-03-13 22:13:52.283 +02:00 [INF] Executed ViewResult - view UploadFile executed in 60.1192ms.
+2023-03-13 22:13:52.287 +02:00 [INF] Executed action Project.Controllers.HomeController.UploadFile (Project) in 77.6707ms
+2023-03-13 22:13:52.289 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.UploadFile (Project)'
+2023-03-13 22:13:52.291 +02:00 [INF] HTTP GET /Home/UploadFile responded 200 in 92.4128 ms
+2023-03-13 22:13:52.297 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/UploadFile - - - 200 - text/html;+charset=utf-8 103.9574ms
+2023-03-13 22:13:52.306 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/css/upload.css - -
+2023-03-13 22:13:52.313 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-03-13 22:13:52.317 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-03-13 22:13:52.323 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.1541ms
+2023-03-13 22:13:52.342 +02:00 [INF] Sending file. Request path: '/css/upload.css'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\css\upload.css'
+2023-03-13 22:13:52.346 +02:00 [INF] HTTP GET /css/upload.css responded 200 in 36.1166 ms
+2023-03-13 22:13:52.350 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/css/upload.css - - - 200 122 text/css 43.8133ms
+2023-03-13 22:13:52.374 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.1177ms

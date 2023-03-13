@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.IRepo;
+using Repository.Repo;
 using RepositoryLayer.UnitOfWork;
 using Serilog;
-using ServiceLayer.BaseService.MaterialService;
+using ServiceLayer.Mapping;
+using ServiceLayer.Service.MaterialService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +35,11 @@ namespace Project
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>
                 (s=>s.UseSqlServer(Configuration.GetConnectionString("Default")));
-
+            services.AddAutoMapper(typeof(ApplicationProfiler).Assembly);
             #region Repo
-            Type[] repositories = Assembly.Load(typeof(Material).Assembly.GetName()).GetTypes().Where(r => r.Name.EndsWith("Repo")).ToArray();
-            Type[] iRepositories = Assembly.Load(typeof(IMaterialRepository).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Repo")).ToArray();
+            Type[] repositories = Assembly.Load(typeof(MaterialRepository).Assembly.GetName()).
+                GetTypes().Where(r => r.Name.EndsWith("Repository")).ToArray();
+            Type[] iRepositories = Assembly.Load(typeof(IMaterialRepository).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Repository")).ToArray();
             foreach (var repoInterface in iRepositories)
             {
                 System.Type classType = repositories.FirstOrDefault(r => repoInterface.IsAssignableFrom(r));

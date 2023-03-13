@@ -1,4 +1,4 @@
-﻿namespace RepositoryLayer.Repository
+﻿namespace Repository
 {
     public interface IRepository<T> : IInsertRepository<T>, IUpdateRepository<T>, IDeleteRepository<T>, IRetreiveRepository<T> where T : class
     {
