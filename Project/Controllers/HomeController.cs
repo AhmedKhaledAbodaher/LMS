@@ -48,11 +48,12 @@ namespace Project.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UploadFile(UploadFileViewModel file)
+        public async Task<IActionResult> UploadFile(UploadFileViewModel uploadedFile)
         {
             if (ModelState.IsValid)
             {
-           var response=   await  materialService.UploadFile(file);
+           var response=   await  materialService.UploadFile(uploadedFile);
+                ViewBag.cmdMessage = response.IsValidResponse;
                 ViewBag.cmdMessage = response.CommandMessage;
             }
             

@@ -20,13 +20,15 @@ namespace ServiceLayer.Service.MaterialService
     public class MaterilaService : BaseAppService, IMaterilaService
     {
         #region CTOR
-        public MaterilaService(IConfiguration configuration, IMaterialRepository material,
+        public MaterilaService(IConfiguration configuration, IHostingEnvironment _ost, IMaterialRepository material,
                IUnitOfWork unitOfWork, IMapper mapper) : base(
                     unitOfWork, mapper)
         {
             Mapper = mapper;
             UnitOfWork = unitOfWork;
             Material = material;
+            Host = _ost;
+
         }
         public IMapper Mapper { get; set; }
         public IUnitOfWork UnitOfWork { get; }
@@ -41,36 +43,69 @@ namespace ServiceLayer.Service.MaterialService
             ApiResponse<bool> response = new ApiResponse<bool>();
             #endregion
 
-
-
-            string UniqueFileNane = default;
-            if (file.File is not null)
+            try
             {
-                string UploaderFolder = Path.Combine(Host.WebRootPath, "Material");
-                UniqueFileNane = Guid.NewGuid().ToString() + "_" + file.File.FileName;
-                string FilePaht = Path.Combine(UploaderFolder, UniqueFileNane);
-                //it uses the path to create it into the desk 
-                file.File.CopyTo(new FileStream(FilePaht, FileMode.Create));
-
-            }
-            Material material = new Material
-            {
-                FileName = file.Name,
-                FilePath = UniqueFileNane,
-                Category = new Category()
+                string UniqueFileNane = default;
+                if (file.File is not null)
                 {
-                    CategoryName = file.CtegoryName
+                    string UploaderFolder = Path.Combine(Host.WebRootPath, "Material");
+                    UniqueFileNane = Guid.NewGuid().ToString() + "_" + file.File.FileName;
+                    string FilePaht = Path.Combine(UploaderFolder, UniqueFileNane);
+                    //it uses the path to create it into the desk 
+                    using (var stream = new FileStream(FilePaht, FileMode.Create))
+                    {
+                        await file.File.CopyToAsync(stream);
+                    };
+
+
+                    var samecategory = await Material.GetAnyAsync(x => x.Category.CategoryName.Equals(file.CtegoryName));
+                    if (samecategory)
+                    {
+                        long selectedId = (await Material.GetFirstOrDefaultAsync(x => x.Category.CategoryName.Equals(file.CtegoryName))).Id;
+                        Material materialWithSameCategory = new Material
+                        {
+                            FileName = file.File.FileName,
+                            FilePath = UniqueFileNane,
+                            CategoryId = selectedId
+                        };
+                        await Material.InsertAsync(materialWithSameCategory);
+  
+                    }
+                    else
+                    {
+
+                        Material material = new Material
+                        {
+                            FileName = file.File.FileName,
+                            FilePath = UniqueFileNane,
+                            Category = new Category()
+                            {
+                                CategoryName = file.CtegoryName
+                            }
+                        };
+                        await Material.InsertAsync(material);
+                    }
+
+
                 }
-            };
-            await Material.InsertAsync(material);
-            bool isSuccess = await UnitOfWork.SaveChangesAsync();
-            if (isSuccess)
-            {
-                await UnitOfWork.SaveChangesAsync();
-                response.IsValidResponse = true;
-                //to Add MessageResourceReader with its layers
-                response.CommandMessage = "File Added Successfully ";
+
+
+                bool isSuccess = await UnitOfWork.SaveChangesAsync();
+                if (isSuccess)
+                {
+                    await UnitOfWork.SaveChangesAsync();
+                    response.IsValidResponse = true;
+                    //to Add MessageResourceReader with its layers
+                    response.CommandMessage = "File Added Successfully ";
+                }
             }
+            catch (Exception ex )
+            {
+
+                throw;
+            }
+
+           
             return response;
         }
     }

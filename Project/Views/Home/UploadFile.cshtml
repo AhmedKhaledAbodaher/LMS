@@ -1,6 +1,7 @@
 ﻿@model ShredKernal.ViewModels.UploadFileViewModel
 @{
     ViewData["Title"] = "UploadFile";
+    ViewBag.cmdMessage = default(bool);
 }
 
     <link rel="stylesheet" href="~/css/upload.css" />
@@ -8,19 +9,35 @@
 
 
 <h1>UploadFile</h1>
+@if (ViewBag.cmdMessage)
+{
+    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">New File Uploaded</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="toast-body">
+            @*@ViewBag.cmdMessage*@
+    </div>
+</div>
 
+
+}
 <div class="upload">
-    <form class="uploadForm" enctype="multipart/form-data" asp-action="Create">
+    <form class="uploadForm" enctype="multipart/form-data" asp-action="UploadFile">
 
         <div class="form-group ">
-            <label asp-for="CtegoryName" class="form-label mt-4 float-left">Category Name</label>
-            <input asp-for="CtegoryName" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <span asp-validation-for="CtegoryName" class="text-danger"></span>
+            <label asp-for="@Model.CtegoryName" class="form-label mt-4 float-left">Category Name</label>
+            <input asp-for="@Model.CtegoryName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <span asp-validation-for="@Model.CtegoryName" class="text-danger"></span>
 
         </div>
         <div class="form-group">
-            <label asp-for="File" class="form-label mt-4 float-left">Upload File</label>
-            <input asp-for="File" class="form-control custom-file-input" type="file" id="formFile">
+            <label asp-for="@Model.File" class="form-label mt-4 float-left">Upload File</label>
+            <input asp-for="@Model.File" class="form-control custom-file-input" type="file" id="formFile">
         </div>
         <button type="submit" class="btn btn-primary float-left mt-3">Submit</button>
 
