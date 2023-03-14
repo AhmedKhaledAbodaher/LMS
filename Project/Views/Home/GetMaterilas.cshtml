@@ -1,8 +1,12 @@
-﻿
+﻿@model IEnumerable<ShredKernal.ViewModels.MaterialViewModel>
 @{
     ViewData["Title"] = "GetMaterilas";
 }
 
 <h1>GetMaterilas</h1>
 <a class="btn btn-info"  asp-action="UploadFile">Info</a>
+@foreach (var item in Model)
+{
+    
+}
 

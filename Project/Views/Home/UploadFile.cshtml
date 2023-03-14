@@ -1,7 +1,7 @@
-﻿@model ShredKernal.ViewModels.UploadFileViewModel
+﻿@model  ShredKernal.ViewModels.UploadFileViewModel
+
 @{
     ViewData["Title"] = "UploadFile";
-    ViewBag.cmdMessage = default(bool);
 }
 
     <link rel="stylesheet" href="~/css/upload.css" />
@@ -9,23 +9,7 @@
 
 
 <h1>UploadFile</h1>
-@if (ViewBag.cmdMessage)
-{
-    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-        <strong class="me-auto">New File Uploaded</strong>
-        <small>11 mins ago</small>
-        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true"></span>
-        </button>
-    </div>
-    <div class="toast-body">
-            @*@ViewBag.cmdMessage*@
-    </div>
-</div>
 
-
-}
 <div class="upload">
     <form class="uploadForm" enctype="multipart/form-data" asp-action="UploadFile">
 
@@ -39,11 +23,15 @@
             <label asp-for="@Model.File" class="form-label mt-4 float-left">Upload File</label>
             <input asp-for="@Model.File" class="form-control custom-file-input" type="file" id="formFile">
         </div>
-        <button type="submit" class="btn btn-primary float-left mt-3">Submit</button>
+        <button onclick="document.getElementById('formFile').value = ''" type="submit" class="btn btn-primary float-left mt-3">Submit</button>
 
     </form>
 
 </div>
+
+
+@*GetAll *@
+<d
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

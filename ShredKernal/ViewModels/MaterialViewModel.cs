@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace ShredKernal.ViewModels
 {
     public class MaterialViewModel
     {
-        public string Name { get; set; }
-        public string PhotoPath { get; set; }
+        public ICollection<Material> MAterilas { get; set; }
+        public string CategoryName { get; set; }
+
     }
 }

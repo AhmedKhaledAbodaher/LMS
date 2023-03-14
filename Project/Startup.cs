@@ -1,3 +1,5 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using DomainLayer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -66,6 +68,8 @@ namespace Project
             #region UOF
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             #endregion
+            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,6 +90,7 @@ namespace Project
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseNotyf();
 
             app.UseAuthorization();
 

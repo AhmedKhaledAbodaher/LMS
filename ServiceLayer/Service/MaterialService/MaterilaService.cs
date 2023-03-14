@@ -20,7 +20,7 @@ namespace ServiceLayer.Service.MaterialService
     public class MaterilaService : BaseAppService, IMaterilaService
     {
         #region CTOR
-        public MaterilaService(IConfiguration configuration, IHostingEnvironment _ost, IMaterialRepository material,
+        public MaterilaService(IConfiguration configuration, ICategoryRepository cat, IHostingEnvironment _ost, IMaterialRepository material,
                IUnitOfWork unitOfWork, IMapper mapper) : base(
                     unitOfWork, mapper)
         {
@@ -28,13 +28,35 @@ namespace ServiceLayer.Service.MaterialService
             UnitOfWork = unitOfWork;
             Material = material;
             Host = _ost;
+            Category = cat;
 
         }
         public IMapper Mapper { get; set; }
         public IUnitOfWork UnitOfWork { get; }
         public IMaterilaService Materila { get; }
         public IMaterialRepository Material { get; }
+        public ICategoryRepository Category { get; }
         public IHostingEnvironment Host { get; }
+
+        public async Task<IEnumerable<MaterialViewModel>> GetAllMaterials()
+        {
+            string includedProperty = nameof(Material);
+            var dataFromDb =await Category.GetWhereAsync(null, includedProperty);
+             IEnumerable<MaterialViewModel> materialViewModels =dataFromDb.Select(x=>new MaterialViewModel() 
+             { 
+                 CategoryName=x.CategoryName,
+                 MAterilas=x.Materials.Select(x=>new Material() { 
+                 FileName=x.FileName,
+                 FilePath=x.FilePath,
+                 
+                 
+                 }).ToList()
+            
+             
+             }) ;
+
+            return materialViewModels;
+        }
         #endregion
 
         public async Task<ApiResponse<bool>> UploadFile(UploadFileViewModel file)
@@ -56,7 +78,6 @@ namespace ServiceLayer.Service.MaterialService
                     {
                         await file.File.CopyToAsync(stream);
                     };
-
 
                     var samecategory = await Material.GetAnyAsync(x => x.Category.CategoryName.Equals(file.CtegoryName));
                     if (samecategory)
@@ -108,5 +129,7 @@ namespace ServiceLayer.Service.MaterialService
            
             return response;
         }
+
+
     }
 }

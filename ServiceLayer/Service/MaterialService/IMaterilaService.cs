@@ -12,5 +12,6 @@ namespace ServiceLayer.Service.MaterialService
     {
 
         Task<ApiResponse<bool>> UploadFile(UploadFileViewModel file);
+        Task<IEnumerable<MaterialViewModel>>GetAllMaterials();
     }
 }

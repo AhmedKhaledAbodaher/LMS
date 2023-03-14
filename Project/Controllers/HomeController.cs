@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project.Models;
 using ServiceLayer.Service.MaterialService;
@@ -15,11 +16,12 @@ namespace Project.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IMaterilaService materialService;
-
-        public HomeController(ILogger<HomeController> logger, IMaterilaService mat)
+        private readonly INotyfService _notifyService;
+        public HomeController(ILogger<HomeController> logger, IMaterilaService mat, INotyfService notifyService)
         {
             materialService = mat;
             _logger = logger;
+            _notifyService=notifyService;
         }
 
         public IActionResult Index()
@@ -28,7 +30,8 @@ namespace Project.Controllers
         }
         public IActionResult GetMaterilas()
         {
-            return View();
+           
+            return View(materialService.GetAllMaterials());
         }
         public IActionResult Privacy()
         {
@@ -53,11 +56,13 @@ namespace Project.Controllers
             if (ModelState.IsValid)
             {
            var response=   await  materialService.UploadFile(uploadedFile);
-                ViewBag.cmdMessage = response.IsValidResponse;
-                ViewBag.cmdMessage = response.CommandMessage;
+                //ViewBag.IsValidResponse = response.IsValidResponse;
+                //ViewBag.cmdMessage = response.CommandMessage;
+                _notifyService.Success($"New File Added");
+
             }
-            
-            return RedirectToAction("GetMaterilas", "Home");
+
+            return View();
         }
     }
 }
