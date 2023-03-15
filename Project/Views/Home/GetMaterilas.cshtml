@@ -4,9 +4,52 @@
 }
 
 <h1>GetMaterilas</h1>
-<a class="btn btn-info"  asp-action="UploadFile">Info</a>
-@foreach (var item in Model)
+<a  class="btn btn-info float-start"  asp-action="UploadFile">Upload File </a>
+@foreach (var category in Model)
 {
-    
+    <h2>@category.CategoryName</h2>
+    <div class="row">
+        @foreach (var item in category.MAterilas)
+        {
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/images/images.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.FileName</h5>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-sm-between"  style="padding:6px">
+                         @Html.ActionLink( "Download", "DownloadFile", new { fileName=item.FilePath })
+                        <button  type="button" id="btnDelete" onclick="DeleteCall(@item.Id)" value="Delete"
+                        class="btn btn-secondary" >Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
+@section Scripts {
+    <script>
+        function DeleteCall(id) {
 
+            // $(document.getElementById("sbmtInput").click(function(e){}
+            $('#btnDelete').click(function (e) {
+
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete")',
+                    data: { id: id }, //use id here
+                    success: function () {
+                        alert("Data has been deleted.");
+                    },
+                    error: function () {
+                        alert("Error while deleting data");
+                    }
+                });
+            });
+        }
+
+ 
+    
+    </script>
+}

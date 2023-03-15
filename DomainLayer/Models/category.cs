@@ -12,6 +12,6 @@ namespace DomainLayer.Models
 
         public string CategoryName { get; set; }
 
-        public ICollection<Material>  Materials { get; set; }
+        public ICollection<Material>  Material { get; set; }
     }
 }

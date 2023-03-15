@@ -9,6 +9,7 @@ namespace ShredKernal.ViewModels
 {
     public class MaterialViewModel
     {
+
         public ICollection<Material> MAterilas { get; set; }
         public string CategoryName { get; set; }
 

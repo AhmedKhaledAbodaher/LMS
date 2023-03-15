@@ -1,4 +1,5 @@
-﻿using ShredKernal.Generics;
+﻿using Microsoft.AspNetCore.Mvc;
+using ShredKernal.Generics;
 using ShredKernal.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,7 @@ namespace ServiceLayer.Service.MaterialService
 
         Task<ApiResponse<bool>> UploadFile(UploadFileViewModel file);
         Task<IEnumerable<MaterialViewModel>>GetAllMaterials();
+        Task Delete(int id );
     }
+    
 }

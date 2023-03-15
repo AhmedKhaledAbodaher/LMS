@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using DomainLayer.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Repository.IRepo;
 using Repository.Repo;
 using RepositoryLayer.UnitOfWork;
@@ -20,7 +22,7 @@ namespace ServiceLayer.Service.MaterialService
     public class MaterilaService : BaseAppService, IMaterilaService
     {
         #region CTOR
-        public MaterilaService(IConfiguration configuration, ICategoryRepository cat, IHostingEnvironment _ost, IMaterialRepository material,
+        public MaterilaService(IConfiguration configuration, ICategoryRepository cat, Microsoft.AspNetCore.Hosting.IHostingEnvironment _ost, IMaterialRepository material,
                IUnitOfWork unitOfWork, IMapper mapper) : base(
                     unitOfWork, mapper)
         {
@@ -36,24 +38,42 @@ namespace ServiceLayer.Service.MaterialService
         public IMaterilaService Materila { get; }
         public IMaterialRepository Material { get; }
         public ICategoryRepository Category { get; }
-        public IHostingEnvironment Host { get; }
+        public Microsoft.AspNetCore.Hosting.IHostingEnvironment Host { get; }
+
+        public async Task Delete(int id)
+        {
+           var toBeDeleted=await Material.GetFirstOrDefaultAsync(x=>x.Id==id);
+            toBeDeleted.IsDeleted = true;
+            await    UnitOfWork.SaveChangesAsync();
+
+        }
 
         public async Task<IEnumerable<MaterialViewModel>> GetAllMaterials()
         {
-            string includedProperty = nameof(Material);
-            var dataFromDb =await Category.GetWhereAsync(null, includedProperty);
-             IEnumerable<MaterialViewModel> materialViewModels =dataFromDb.Select(x=>new MaterialViewModel() 
+            IEnumerable<MaterialViewModel> materialViewModels=new List<MaterialViewModel>();
+            try
+            {
+
+            var dataFromDb =await Category.GetWhereAsync(x=>x.IsDeleted==false, "Material");
+            materialViewModels =dataFromDb.Select(x=>new MaterialViewModel() 
              { 
                  CategoryName=x.CategoryName,
-                 MAterilas=x.Materials.Select(x=>new Material() { 
+                 MAterilas=x.Material.Select(x=>new Material() { 
                  FileName=x.FileName,
                  FilePath=x.FilePath,
-                 
+                 Id=x.Id,
                  
                  }).ToList()
             
              
              }) ;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+          
 
             return materialViewModels;
         }
@@ -82,7 +102,7 @@ namespace ServiceLayer.Service.MaterialService
                     var samecategory = await Material.GetAnyAsync(x => x.Category.CategoryName.Equals(file.CtegoryName));
                     if (samecategory)
                     {
-                        long selectedId = (await Material.GetFirstOrDefaultAsync(x => x.Category.CategoryName.Equals(file.CtegoryName))).Id;
+                        long selectedId = (await Category.GetFirstOrDefaultAsync(x => x.CategoryName.Equals(file.CtegoryName))).Id;
                         Material materialWithSameCategory = new Material
                         {
                             FileName = file.File.FileName,
@@ -129,7 +149,7 @@ namespace ServiceLayer.Service.MaterialService
            
             return response;
         }
-
+      
 
     }
 }

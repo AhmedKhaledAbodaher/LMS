@@ -15,7 +15,7 @@ namespace DomainLayer.Configuration
         {
 
             builder.HasKey(x => x.Id);
-            builder.HasMany(x => x.Materials).WithOne(x => x.Category).HasForeignKey(x => x.CategoryId);
+            builder.HasMany(x => x.Material).WithOne(x => x.Category).HasForeignKey(x => x.CategoryId);
             
         
         }
