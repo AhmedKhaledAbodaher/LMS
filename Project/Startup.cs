@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.MiddleWare;
 using Repository.IRepo;
 using Repository.Repo;
 using RepositoryLayer.UnitOfWork;
@@ -53,7 +54,7 @@ namespace Project
             #endregion
 
             #region Services
-            Type[] appServices = Assembly.Load(typeof(MaterilaService).Assembly.GetName()).GetTypes().Where(r => r.IsClass && r.Name.EndsWith("Service")).ToArray();
+            Type[] appServices = Assembly.Load(typeof(VideoService).Assembly.GetName()).GetTypes().Where(r => r.IsClass && r.Name.EndsWith("Service")).ToArray();
             Type[] iappServices = Assembly.Load(typeof(IMaterilaService).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Service")).ToArray();
             foreach (var serviceInterface in iappServices)
             {
@@ -91,6 +92,7 @@ namespace Project
 
             app.UseRouting();
             app.UseNotyf();
+        //    app.UseMiddleware<GlobalErrorHandling>();
 
             app.UseAuthorization();
 

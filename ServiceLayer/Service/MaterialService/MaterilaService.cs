@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using cloudscribe.Pagination.Models;
 using DomainLayer.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -43,39 +44,71 @@ namespace ServiceLayer.Service.MaterialService
         public async Task Delete(int id)
         {
            var toBeDeleted=await Material.GetFirstOrDefaultAsync(x=>x.Id==id);
-            toBeDeleted.IsDeleted = true;
-            await    UnitOfWork.SaveChangesAsync();
-
+           
+       Material.HardDelete(toBeDeleted);
+         var res=   await    UnitOfWork.SaveChangesAsync();
+            await Console.Out.WriteLineAsync(   "any");
         }
 
-        public async Task<IEnumerable<MaterialViewModel>> GetAllMaterials()
+        public async Task<List<MaterialViewModel>> GetAllMaterials()
         {
+         
+     
             IEnumerable<MaterialViewModel> materialViewModels=new List<MaterialViewModel>();
             try
             {
-
-            var dataFromDb =await Category.GetWhereAsync(x=>x.IsDeleted==false, "Material");
+                MaterialViewModel vm =new MaterialViewModel();
+            var dataFromDb =await Category.GetWhereAsync(x=>x .IsDeleted==false, "Material");
+                dataFromDb.SelectMany(x => x.Material.Select(x => !x.IsDeleted));
             materialViewModels =dataFromDb.Select(x=>new MaterialViewModel() 
              { 
+                CategoryId=(int)x.Id,
                  CategoryName=x.CategoryName,
                  MAterilas=x.Material.Select(x=>new Material() { 
                  FileName=x.FileName,
                  FilePath=x.FilePath,
                  Id=x.Id,
                  
-                 }).ToList()
+                 }).OrderBy(x=>x.FileName).Take(3).ToList()
+
+
+            }
             
-             
-             }) ;
+            ).ToList();
+
+                // result = new PagedResult<MaterialViewModel>
+                //{
+                //    Data = materialViewModels.ToList(),
+                //    TotalItems = materialViewModels.SelectMany(x=>x.MAterilas).Select(x=>x).Count(),
+                //    PageNumber=pageNumber,
+                //    PageSize=pageSize
+                //};
+                    
+                    
+                
             }
             catch (Exception ex)
-            {
-
+            { 
                 throw;
             }
           
 
-            return materialViewModels;
+            return materialViewModels.ToList();
+        }
+
+        public async Task<MaterialViewModel> GetCategoryWithMaterial(int catId)
+        {
+        
+
+
+            var dataFromDb =  await  Category.GetFirstOrDefaultAsync(x => x.Id == catId,nameof(Material));
+            MaterialViewModel materialVm = new MaterialViewModel() {
+            CategoryName=dataFromDb.CategoryName,
+            MAterilas=dataFromDb.Material,
+            
+            
+            };
+            return materialVm;
         }
         #endregion
 

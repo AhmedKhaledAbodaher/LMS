@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShredKernal.ViewModels
 {
-    public class UploadVideoViewModel
+    public class UploadFileViewModel
     {
         public string Name { get; set; }
-        public string GenreName { get; set; }
+        public string CtegoryName { get; set; }
 
-        public string VideoUrl { get; set; }
+        public IFormFile File { get; set; }
     }
 }

@@ -10,13 +10,12 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Service.MaterialService
 {
-    public interface IMaterilaService
+    public interface IVieoService
     {
+        Task<ApiResponse<bool>> UploadFile(UploadVideoViewModel file);
 
-        Task<ApiResponse<bool>> UploadFile(UploadFileViewModel file);
-        Task<List<MaterialViewModel>>GetAllMaterials();
-        Task Delete(int id );
-        Task<MaterialViewModel> GetCategoryWithMaterial(int catId);
+
+
     }
-    
+
 }

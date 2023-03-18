@@ -20,7 +20,13 @@ namespace Repository
         #endregion
 
         #region Get Paged
-        Task<List<T>> GetPageAsync<TKey>(int PageNumeber, int PageSize, Expression<Func<T, bool>> filter, Expression<Func<T, TKey>> sortingExpression, SortDirection sortDir = SortDirection.Ascending, string includeProperties = "");
+        Task<List<T>> GetPageAsync<TKey>(int PageNumeber, int PageSize, Expression<Func<T, bool>> filter=null,
+            Expression<Func<T, TKey>> sortingExpression=null,
+            SortDirection sortDir = SortDirection.Ascending,
+            string includeProperties = ""); 
+        Task<List<T>> GetPageAsyncEx<TKey>(int PageNumeber, int PageSize, Expression<Func<T, bool>> filter = null,
+           
+            string includeProperties = "");
         #endregion
 
         #region Get Individuals

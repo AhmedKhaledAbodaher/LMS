@@ -1,0 +1,53 @@
+﻿@model  ShredKernal.ViewModels.UploadVideoViewModel
+
+@{
+    ViewData["Title"] = "UploadVideo";
+}
+
+    <link rel="stylesheet" href="~/css/upload.css" />
+
+
+
+<h1>UploadVideo</h1>
+
+<div class="upload">
+    <form class="uploadForm" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFile">
+
+        <div class="form-group ">
+            <label asp-for="@Model.Name" class="form-label mt-4 float-left">Category Name</label>
+            <input asp-for="@Model.Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.VideoUrl" class="form-label mt-4 float-left">Upload File</label>
+            <input asp-for="@Model.VideoUrl" class="form-control custom-file-input" type="file" name="file" id="formFile">
+             <span asp-validation-for="@Model.VideoUrl" class="text-danger"></span>
+
+        </div>
+        <button  type="submit" 
+        class="btn btn-primary float-left mt-3">Submit</button>
+        @*onclick*@="document.getElementById('formFile').value = ''"
+    </form>
+
+</div>
+
+
+@*GetAll *@
+<d
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        //while uploading file it used to bind file name to the lable selector
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+
+
+}

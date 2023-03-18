@@ -1,32 +1,47 @@
-﻿@model IEnumerable<ShredKernal.ViewModels.MaterialViewModel>
+﻿@model  IEnumerable<ShredKernal.ViewModels.MaterialViewModel>
+
 @{
     ViewData["Title"] = "GetMaterilas";
 }
 
 <h1>GetMaterilas</h1>
-<a  class="btn btn-info float-start"  asp-action="UploadFile">Upload File </a>
+<a class="btn btn-info float-start" asp-action="UploadFile">Upload File </a>
 @foreach (var category in Model)
 {
     <h2>@category.CategoryName</h2>
     <div class="row">
         @foreach (var item in category.MAterilas)
         {
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
+            <div class="col-lg-3 col-sm-12">
+                <div class="card" style="width:11rem;">
                     <img src="~/images/images.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@item.FileName</h5>
                     </div>
-                    <div class="modal-footer d-flex justify-content-sm-between"  style="padding:6px">
-                         @Html.ActionLink( "Download", "DownloadFile", new { fileName=item.FilePath })
-                        <button  type="button" id="btnDelete" onclick="DeleteCall(@item.Id)" value="Delete"
-                        class="btn btn-secondary" >Delete</button>
+                    <div class="modal-footer d-flex justify-content-sm-between" >
+
+                        <button class="btn btn-primary" onclick="location.href='@Url.Action("DownloadFile", "Home", new {  name = item.FilePath })'">
+                            downnload
+                        </button>
+
+
+                        <button type="button" id="btnDelete" onclick="location.href='@Url.Action("Delete", "Home", new {  id = item.Id })'"
+                                class="btn btn-secondary">
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>
         }
+
+    
+        
+    
     </div>
+    <a style="float:left" type="button" asp-controller="Home" asp-action="GetCategoryWithMaterial" asp-route-catId="@category.CategoryId" class="btn btn-link">View More</a>
+
 }
+
 @section Scripts {
     <script>
         function DeleteCall(id) {
@@ -49,7 +64,10 @@
             });
         }
 
- 
-    
+        //
+
+
     </script>
+
+   
 }

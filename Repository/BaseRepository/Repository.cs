@@ -164,6 +164,19 @@ namespace RepositoryLayer.Repository.BaseRepository
                     break;
             }
             return await query.AsNoTracking().ToListAsync();
+        }   
+        public async Task<List<T>> GetPageAsyncEx<TKey>(int PageNumber, int PageSize, Expression<Func<T, bool>> filter, string includeProperties = "")
+        {
+            IQueryable<T> query = context.Set<T>();
+            int skipCount = (PageNumber - 1) * PageSize;
+
+            if (filter != null)
+                query = query.Where(filter);
+
+            query = includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+
+            return await query.AsNoTracking().ToListAsync();
         }
         #endregion
 

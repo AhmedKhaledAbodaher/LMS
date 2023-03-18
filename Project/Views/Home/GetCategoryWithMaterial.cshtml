@@ -1,0 +1,40 @@
+﻿@model ShredKernal.ViewModels.MaterialViewModel
+
+@{
+    ViewData["Title"] = "GetCategoryWithMaterial";
+}
+<div class="row">
+    <div class="col-2">
+        <a type="button" asp-controller="Home" asp-action="GetMaterilas" class="btn btn-secondary">Previous</a>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3"> <h2>@Model.CategoryName</h2></div>
+   
+</div>
+<div class="row mt-2">
+    @foreach (var item in Model.MAterilas)
+    {
+        <div class="col-lg-3 col-sm-12">
+            <div class="card" style="width:11rem;">
+                <img src="~/images/images.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.FileName</h5>
+                </div>
+                <div class="modal-footer d-flex justify-content-sm-between">
+
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("DownloadFile", "Home", new {  name = item.FilePath })'">
+                        downnload
+                    </button>
+
+
+                    <button type="button" id="btnDelete" onclick="location.href='@Url.Action("Delete", "Home", new {  id = item.Id })'"
+                            class="btn btn-secondary">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

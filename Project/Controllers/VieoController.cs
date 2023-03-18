@@ -14,36 +14,33 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    public class HomeController : Controller
+    public class VideoController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IMaterilaService materialService;
-        private readonly INotyfService _notifyService;
-        public HomeController(ILogger<HomeController> logger, Microsoft.AspNetCore.Hosting.IHostingEnvironment _ost, IMaterilaService mat, INotyfService notifyService)
+
+        public VideoController(VideoService videoService)
         {
-            materialService = mat;
-            _logger = logger;
-            _notifyService=notifyService;
-            Host = _ost;
+            VideoService = VideoService;
+
+
         }
+        public VideoService VideoService { get; set; }
         public Microsoft.AspNetCore.Hosting.IHostingEnvironment Host { get; }
 
         public IActionResult Index()
         {
             return View();
         }
-        public async Task<IActionResult> GetMaterilas()
+        public async Task<IActionResult> GetVideos()
         {
-            var MaterialList =
-                await materialService.GetAllMaterials();
+            
 
-            return View(MaterialList);
+            return View();
         }
 
         public async Task<IActionResult> GetCategoryWithMaterial(int catId)
         {
-            var result = await materialService.GetCategoryWithMaterial(catId);
-            return View(result);
+           
+            return View();
         }
         public IActionResult Privacy()
         {
@@ -63,17 +60,10 @@ namespace Project.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UploadFile(UploadFileViewModel uploadedFile)
+        public async Task<IActionResult> UploadFile(UploadVideoViewModel uploadedFile)
         {
-            if (ModelState.IsValid)
-            {
-           var response=   await  materialService.UploadFile(uploadedFile);
-                //ViewBag.IsValidResponse = response.IsValidResponse;
-                //ViewBag.cmdMessage = response.CommandMessage;
-                _notifyService.Success($"New File Added");
 
-            }
-
+         await  VideoService.UploadFile(uploadedFile);
             return View();
         }
         //public async Task<IActionResult> Delete(int id)
@@ -88,8 +78,8 @@ namespace Project.Controllers
         public async Task<IActionResult> Delete(int id)
         {
 
-            await materialService.Delete(id);
-             _notifyService.Warning("File is deleted");
+            //await materialService.Delete(id);
+            // _notifyService.Warning("File is deleted");
 
             return RedirectToAction("GetMaterilas");
         }
