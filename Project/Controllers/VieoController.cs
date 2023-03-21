@@ -17,30 +17,35 @@ namespace Project.Controllers
     public class VideoController : Controller
     {
 
-        public VideoController(VideoService videoService)
+        public VideoController(IVieoService videoService, INotyfService notyf, INotyfService notifyService)
         {
-            VideoService = VideoService;
+            VideoService = videoService;
 
-
+            Notyf = notyf;
+            _notifyService = notifyService; 
         }
-        public VideoService VideoService { get; set; }
+        public IVieoService VideoService { get; set; }
+        private readonly INotyfService _notifyService;
+
         public Microsoft.AspNetCore.Hosting.IHostingEnvironment Host { get; }
+        public INotyfService Notyf { get; set; }
 
         public IActionResult Index()
         {
             return View();
         }
+        [HttpGet]
         public async Task<IActionResult> GetVideos()
         {
-            
-
-            return View();
+            //VideoService.get
+            var result =await VideoService.GetVideos();
+            return View(result);
         }
 
-        public async Task<IActionResult> GetCategoryWithMaterial(int catId)
+        public async Task<IActionResult> GetVideoWithGenre(int catId)
         {
            
-            return View();
+            return View(await VideoService.GetVideoWithGenre(catId));
         }
         public IActionResult Privacy()
         {
@@ -62,24 +67,20 @@ namespace Project.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadFile(UploadVideoViewModel uploadedFile)
         {
-
-         await  VideoService.UploadFile(uploadedFile);
+            if (ModelState.IsValid)
+            {
+                await VideoService.UploadFile(uploadedFile);
+                //_notifyService.Success($"New File Added");
+                Notyf.Success("New Video Uploded ");
+            }
             return View();
         }
-        //public async Task<IActionResult> Delete(int id)
-        //{
-
-        //    await materialService.Delete(id);
-        //    _notifyService.Warning("File is deleted");
-
-        //    return RedirectToAction("GetMaterilas");
-        //}
-        //[HttpPost]
+       
         public async Task<IActionResult> Delete(int id)
         {
 
-            //await materialService.Delete(id);
-            // _notifyService.Warning("File is deleted");
+            await VideoService.Delete(id);
+            _notifyService.Warning("File is deleted");
 
             return RedirectToAction("GetMaterilas");
         }

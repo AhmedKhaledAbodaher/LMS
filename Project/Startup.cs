@@ -54,6 +54,7 @@ namespace Project
             #endregion
 
             #region Services
+
             Type[] appServices = Assembly.Load(typeof(VideoService).Assembly.GetName()).GetTypes().Where(r => r.IsClass && r.Name.EndsWith("Service")).ToArray();
             Type[] iappServices = Assembly.Load(typeof(IMaterilaService).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Service")).ToArray();
             foreach (var serviceInterface in iappServices)
@@ -91,7 +92,7 @@ namespace Project
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseNotyf();
+            
         //    app.UseMiddleware<GlobalErrorHandling>();
 
             app.UseAuthorization();

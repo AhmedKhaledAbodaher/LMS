@@ -11,6 +11,7 @@ namespace ShredKernal.ViewModels
     {
         public string Name { get; set; }
         public string GenreName { get; set; }
+        public string VideoDescription { get; set; }
 
         public string VideoUrl { get; set; }
     }

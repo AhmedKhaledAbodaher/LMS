@@ -11,6 +11,7 @@ namespace DomainLayer.Models
         public int Id { get; set; }
         public string VideoName { get; set; }
         public string VideoUrl { get; set; }
+        public string VideoDescription { get; set; }
         public Genre Genre { get; set; }
         public int GenreId { get; set; }
 

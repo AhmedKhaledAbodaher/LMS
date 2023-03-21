@@ -99,28 +99,28 @@
     </header>
     <div>
         <div class="row">
-            <div class="col-3">
-                <div id="mySidenav" class="sidenav">
+            <div class="col-lg-2 col-sm-12 ">
+                <div id="mySidenav" class="sidenav" >
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a class="alink" asp-controller="Home" asp-action="Index">Home</a>
                     <a class="alink" asp-controller="Home" asp-action="GetMaterilas">Material</a>
-                    <a class="alink" href="#">Vidoes</a>
+                    <a class="alink" asp-controller="Video" asp-action="GetVideos">Vidoes</a>
                     <a class="alink" href="#">Assessment</a>
                 </div>
                 
             </div>
-            <div class="col-6 text-center" id="main">
+            <div class="col-lg-7 col-sm-12  text-center" id="main">
                 <main role="main" class="pb-3">
 
                     @RenderBody()
                 </main>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12" style="width:23%">
                 <div class="row">
-                <div class="calendar col"></div>
+                    <div class="calendar col  col-sm-12"></div>
                 </div> 
                 <div class="row">
-                <div class="col">
+                    <div class="col col-sm-12" ">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Event 1
@@ -149,12 +149,12 @@
     <script src="calender.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await Component.InvokeAsync("Notyf")
+   @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("mySidenav").style.width = "211px";
+            document.getElementById("main").style.marginLeft = "211px";
         }
 
         function closeNav() {

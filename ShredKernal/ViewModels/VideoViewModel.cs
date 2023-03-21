@@ -9,7 +9,8 @@ namespace ShredKernal.ViewModels
 {
     public class VideoViewModel
     {
-    
+
+        public int GenreId { get; set; }
         public ICollection<Video> Videos { get; set; }
         public string GenreName { get; set; }
 

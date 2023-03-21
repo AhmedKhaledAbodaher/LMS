@@ -13,7 +13,9 @@ namespace ServiceLayer.Service.MaterialService
     public interface IVieoService
     {
         Task<ApiResponse<bool>> UploadFile(UploadVideoViewModel file);
-
+        Task<List<VideoViewModel>>GetVideos();
+        Task<VideoViewModel>    GetVideoWithGenre( int genreId);
+        Task Delete(int id);
 
 
     }
