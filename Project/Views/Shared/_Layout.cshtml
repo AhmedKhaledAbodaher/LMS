@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/calender.css" />
     @section Styles{
-    // Add something here
+ 
     }
     <style>
         .sidenav {
             height: 100%;
-            width: 0;
+            width: 211px;
             position: fixed;
             z-index: 1;
             top: 0;
@@ -49,6 +49,8 @@
         #main {
             transition: margin-left .5s;
             padding: 16px;
+            
+            margin-left:211px;
         }
         .alink:hover{
         
@@ -59,7 +61,7 @@
         
         }
 
-        /**/
+       
     </style>
 </head>
 <body>
@@ -67,10 +69,10 @@
     <header id="main">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark  navbar navbar-expand-sm navbar-toggleable-sm  box-shadow  main-nav">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            <span style="font-size:30px;cursor:pointer;padding-left:20px" onclick="openNav()">&#9776; </span>
 
             <div class="container-fluid" style="width:90%;margin:auto">
-                <a class="navbar-brand" href="#"><img width="100" height="50" alt="Cs-Acadmi" src="~/images/Log.jpg" /></a>
+                <a class="navbar-brand" href="#"><img width="100" style="height:64px" alt="Cs-Acadmi" src="~/images/f67b4a07-d072-4c83-a9ed-2016ae1b70cb.jpg" /></a>
 
                 <a class="navbar-brand" href="#" style="display: flex;">
                   <div class="row">
@@ -109,7 +111,7 @@
                 </div>
                 
             </div>
-            <div class="col-lg-7 col-sm-12  text-center" id="main">
+            <div class="col-lg-7 col-sm-12  text-center" id="main1">
                 <main role="main" class="pb-3">
 
                     @RenderBody()
@@ -120,7 +122,7 @@
                     <div class="calendar col  col-sm-12"></div>
                 </div> 
                 <div class="row">
-                    <div class="col col-sm-12" ">
+                    <div class="col col-sm-12" >
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Event 1

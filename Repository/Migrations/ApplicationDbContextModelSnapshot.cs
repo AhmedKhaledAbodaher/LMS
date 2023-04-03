@@ -35,6 +35,26 @@ namespace Repository.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("DomainLayer.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("CourseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LevelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LevelId");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("DomainLayer.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
@@ -48,6 +68,38 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genre");
+                });
+
+            modelBuilder.Entity("DomainLayer.Models.Level", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("LevelName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Level");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LevelName = "First Level"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LevelName = "Second Level"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LevelName = "Third Level"
+                        });
                 });
 
             modelBuilder.Entity("DomainLayer.Models.Material", b =>
@@ -102,6 +154,17 @@ namespace Repository.Migrations
                     b.ToTable("Video");
                 });
 
+            modelBuilder.Entity("DomainLayer.Models.Course", b =>
+                {
+                    b.HasOne("DomainLayer.Models.Level", "Level")
+                        .WithMany("Courses")
+                        .HasForeignKey("LevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Level");
+                });
+
             modelBuilder.Entity("DomainLayer.Models.Material", b =>
                 {
                     b.HasOne("DomainLayer.Models.Category", "Category")
@@ -132,6 +195,11 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainLayer.Models.Genre", b =>
                 {
                     b.Navigation("Vidoes");
+                });
+
+            modelBuilder.Entity("DomainLayer.Models.Level", b =>
+                {
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }

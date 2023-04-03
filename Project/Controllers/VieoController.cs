@@ -1,4 +1,5 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using VideoLibrary;
 
 namespace Project.Controllers
 {
@@ -84,15 +87,19 @@ namespace Project.Controllers
 
             return RedirectToAction("GetMaterilas");
         }
-        public async Task<FileResult> DownloadFile(string name)
+        //   [HttpGet("download")]
+        public IActionResult GetBlobDownload(string link)
         {
-
-
-            string path = Path.Combine(Host.WebRootPath, "Material\\") + name;
-            //it used to convert the file and download it 
-            byte[] bytes = await System.IO.File.ReadAllBytesAsync(path);
-            return File(bytes, "application/octet-stream", name);
-
+            //var net = new System.Net.WebClient();
+            //var data = net.DownloadData(link);
+            //var content = new System.IO.MemoryStream(data);
+            //var contentType = "APPLICATION/octet-stream";
+            //var fileName = "video.mp4";
+            //var VedioUrl = link+ ".mp4";
+            //var youTube = YouTube.Default;
+            //var video = youTube.GetVideo(VedioUrl);
+            //System.IO.File.WriteAllBytes(Server.MapPath("~/youtube/" + video.FullName + ".mp4"), video.GetBytes());
+            return null;
         }
     }
 }

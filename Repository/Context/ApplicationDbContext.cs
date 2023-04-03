@@ -8,6 +8,8 @@ public class ApplicationDbContext:DbContext
     #region Props
     public DbSet<Category> Category { get; set; }          
     public DbSet<Material> Material { get; set; }          
+    public DbSet<Level> Level { get; set; }          
+    public DbSet<Course> Courses { get; set; }          
     #endregion 
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext>op):base(op)

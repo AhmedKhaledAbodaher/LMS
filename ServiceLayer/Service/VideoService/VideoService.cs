@@ -38,7 +38,7 @@ namespace ServiceLayer.Service.MaterialService
         }
         public IMapper Mapper { get; set; }
         public IUnitOfWork UnitOfWork { get; }
-        public IMaterilaService Materila { get; }
+        public ILevelService Materila { get; }
         public IMaterialRepository Material { get; }
         public ICategoryRepository Category { get; }
         public IVideoRepository Video { get; }
@@ -71,6 +71,7 @@ namespace ServiceLayer.Service.MaterialService
                         VideoName = x.VideoName,
                         
                         Id = x.Id,
+                        VideoUrl=x.VideoUrl
 
                     }).OrderBy(x => x.Id).Take(2).ToList()
 

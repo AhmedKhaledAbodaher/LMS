@@ -1,0 +1,48 @@
+﻿@model ShredKernal.ViewModels.LevelViewModel ;
+@{
+    ViewData["Title"] = "HomeWork Page";
+}
+
+<div class="form-group">
+    <label asp-for="LevelId" class="form-label mt-4">Select Level </label>
+    <select asp-for="LevelId" asp-items="@(new SelectList(Model.Levels,"Id","LevelName"))" class="form-select" >
+        <option></option>
+       
+    </select>  
+    <label asp-for="CourselId" class="form-label mt-4">Select Course </label>
+    <select asp-for="CourselId" asp-items="@(new SelectList(Model.Courses,"Id","CourseName"))" class="form-select">
+        <option></option>
+       
+    </select>
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function(){
+            $("#LevelId").on('change',function(){
+                console.log($(this).val());
+                var levelId = $(this).val();
+                var courseList=$('#CourselId');
+                courseList.empty();
+              if (levelId !==''){
+                    $.ajax({
+                        url: '/HomeWork/GetCources?levelId=' + levelId,
+                        success: function (data) {
+                            console.log(data);
+                            $.each(data,function(i,course){
+                                $('#CourselId').append($('<option></option>').attr('value',course.id).text(course.courseName));
+                            });
+                        },
+                        error: function () {
+                            alert('something wrong');
+
+                        }
+
+                    });
+              }
+            });
+        });
+      
+    </script>
+}

@@ -56,7 +56,7 @@ namespace Project
             #region Services
 
             Type[] appServices = Assembly.Load(typeof(VideoService).Assembly.GetName()).GetTypes().Where(r => r.IsClass && r.Name.EndsWith("Service")).ToArray();
-            Type[] iappServices = Assembly.Load(typeof(IMaterilaService).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Service")).ToArray();
+            Type[] iappServices = Assembly.Load(typeof(ILevelService).Assembly.GetName()).GetTypes().Where(r => r.IsInterface && r.Name.EndsWith("Service")).ToArray();
             foreach (var serviceInterface in iappServices)
             {
                 System.Type classType = appServices.FirstOrDefault(r => serviceInterface.IsAssignableFrom(r));
