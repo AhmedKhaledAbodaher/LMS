@@ -92,8 +92,9 @@ namespace Project
             app.UseStaticFiles();
 
             app.UseRouting();
-            
-        //    app.UseMiddleware<GlobalErrorHandling>();
+            app.UseNotyf();
+
+            //    app.UseMiddleware<GlobalErrorHandling>();
 
             app.UseAuthorization();
 

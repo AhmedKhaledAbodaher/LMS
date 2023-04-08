@@ -76,15 +76,7 @@ namespace Project.Controllers
 
             return View();
         }
-        //public async Task<IActionResult> Delete(int id)
-        //{
-
-        //    await materialService.Delete(id);
-        //    _notifyService.Warning("File is deleted");
-
-        //    return RedirectToAction("GetMaterilas");
-        //}
-        //[HttpPost]
+        
         public async Task<IActionResult> Delete(int id)
         {
 

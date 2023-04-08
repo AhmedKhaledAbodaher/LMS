@@ -1,4 +1,6 @@
 ﻿using DomainLayer.Models;
+using ShredKernal.Generics;
+using ShredKernal.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace ServiceLayer.Service.CourceService
     public interface ICourseService
     {
         Task<List<Course>> GetCourses(Expression<Func<Course,bool>> func);
+        Task<ApiResponse<bool>> UploadFile(UploadCourseFileViewModel file);
 
     }
 }

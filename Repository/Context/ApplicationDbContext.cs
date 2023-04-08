@@ -10,6 +10,7 @@ public class ApplicationDbContext:DbContext
     public DbSet<Material> Material { get; set; }          
     public DbSet<Level> Level { get; set; }          
     public DbSet<Course> Courses { get; set; }          
+    public DbSet<CourseFiles> CourseFiles { get; set; }          
     #endregion 
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext>op):base(op)

@@ -12,5 +12,7 @@ namespace DomainLayer.Models
         public string CourseName  { get; set; }
         public Level Level { get; set; }
         public int LevelId { get; set; }
+        public ICollection<CourseFiles> CourseFiles { get; set; }
+
     }
 }

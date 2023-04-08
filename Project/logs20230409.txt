@@ -1,0 +1,812 @@
+2023-04-09 00:00:29.716 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundaryewVRgU3Whioq3Qoa 20776
+2023-04-09 00:00:30.073 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:00:30.098 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile(ShredKernal.ViewModels.UploadCourseFileViewModel) on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:00:30.104 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:01:35.613 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[CourseName] = @__file_CtegoryName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 00:01:58.177 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CourseName], [c].[LevelId]
+FROM [Courses] AS [c]
+WHERE [c].[CourseName] = @__file_CtegoryName_0
+2023-04-09 00:02:15.693 +02:00 [ERR] Failed executing DbCommand (32ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CourseFiles] ([CourseId], [FileName], [FilePath])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CourseFiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-09 00:02:15.764 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'FilePath'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:387f0055-8617-4f1d-ba07-105b019a01b2
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'FilePath'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:387f0055-8617-4f1d-ba07-105b019a01b2
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-04-09 00:02:16.276 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 106174.5362ms
+2023-04-09 00:02:16.294 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:02:16.298 +02:00 [ERR] HTTP POST /HomeWork/UploadFile responded 500 in 106224.4020 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'FilePath'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:387f0055-8617-4f1d-ba07-105b019a01b2
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at RepositoryLayer.UnitOfWork.UnitOfWork.SaveChangesAsync() in E:\ADVANCED TLEVEL\Project\Repository\UnitOfWork\UnitOfWork.cs:line 22
+   at ServiceLayer.Service.CourceService.CourseService.UploadFile(UploadCourseFileViewModel file) in E:\ADVANCED TLEVEL\Project\ServiceLayer\Service\CourceService\CourseService.cs:line 91
+   at Project.Views.Attendance.HomeWorkController.UploadFile(UploadCourseFileViewModel uploadedFile) in E:\ADVANCED TLEVEL\Project\Project\Controllers\HomeWorkController.cs:line 42
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-04-09 00:02:16.757 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'FilePath'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:387f0055-8617-4f1d-ba07-105b019a01b2
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at RepositoryLayer.UnitOfWork.UnitOfWork.SaveChangesAsync() in E:\ADVANCED TLEVEL\Project\Repository\UnitOfWork\UnitOfWork.cs:line 22
+   at ServiceLayer.Service.CourceService.CourseService.UploadFile(UploadCourseFileViewModel file) in E:\ADVANCED TLEVEL\Project\ServiceLayer\Service\CourceService\CourseService.cs:line 91
+   at Project.Views.Attendance.HomeWorkController.UploadFile(UploadCourseFileViewModel uploadedFile) in E:\ADVANCED TLEVEL\Project\Project\Controllers\HomeWorkController.cs:line 42
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-04-09 00:02:16.864 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundaryewVRgU3Whioq3Qoa 20776 - 500 - text/html;+charset=utf-8 107148.3295ms
+2023-04-09 00:02:16.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:02:16.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:02:16.951 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.1681ms
+2023-04-09 00:02:17.005 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.7275ms
+2023-04-09 00:06:47.392 +02:00 [INF] Starting Web Host
+2023-04-09 00:06:48.957 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 00:06:49.277 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 00:06:49.280 +02:00 [INF] Hosting environment: Development
+2023-04-09 00:06:49.289 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-04-09 00:06:49.323 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:06:49.397 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:06:49.446 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:06:50.321 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:06:50.388 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:06:50.634 +02:00 [INF] Executed ViewResult - view Index executed in 246.7273ms.
+2023-04-09 00:06:50.641 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1191.5463ms
+2023-04-09 00:06:50.646 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:06:50.650 +02:00 [INF] HTTP GET / responded 200 in 1287.0895 ms
+2023-04-09 00:06:50.781 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1462.2363ms
+2023-04-09 00:06:50.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:06:50.907 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:06:50.911 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:06:50.919 +02:00 [INF] HTTP GET /calender.js responded 404 in 8.9633 ms
+2023-04-09 00:06:50.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 27.5789ms
+2023-04-09 00:06:50.935 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 22.7022ms
+2023-04-09 00:06:51.015 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 104.0502ms
+2023-04-09 00:06:59.223 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:06:59.229 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:06:59.239 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:06:59.278 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:06:59.605 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:06:59.609 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:06:59.613 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:06:59.624 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:06:59.986 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:06:59.986 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:07:00.045 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:07:00.045 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:07:00.129 +02:00 [INF] Executed ViewResult - view Index executed in 84.6566ms.
+2023-04-09 00:07:00.130 +02:00 [INF] Executed ViewResult - view Index executed in 86.2204ms.
+2023-04-09 00:07:00.134 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 891.118ms
+2023-04-09 00:07:00.136 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 520.3227ms
+2023-04-09 00:07:00.140 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:07:00.142 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:07:00.145 +02:00 [INF] HTTP GET /HomeWork responded 200 in 917.6938 ms
+2023-04-09 00:07:00.148 +02:00 [INF] HTTP GET /HomeWork responded 200 in 539.0638 ms
+2023-04-09 00:07:00.168 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 200 - text/html;+charset=utf-8 944.1201ms
+2023-04-09 00:07:00.170 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 200 - text/html;+charset=utf-8 562.7311ms
+2023-04-09 00:07:00.241 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:07:00.245 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:07:00.245 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:07:00.247 +02:00 [INF] HTTP GET /calender.js responded 404 in 2.1272 ms
+2023-04-09 00:07:00.259 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 17.8578ms
+2023-04-09 00:07:00.264 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 18.6215ms
+2023-04-09 00:07:00.313 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.7598ms
+2023-04-09 00:07:01.868 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - -
+2023-04-09 00:07:01.875 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:07:01.881 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:07:01.887 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:07:01.902 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:07:01.907 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:07:01.948 +02:00 [INF] Executed ViewResult - view UploadFile executed in 40.8428ms.
+2023-04-09 00:07:01.951 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 66.5565ms
+2023-04-09 00:07:01.954 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:07:01.957 +02:00 [INF] HTTP GET /HomeWork/UploadFile responded 200 in 82.0664 ms
+2023-04-09 00:07:01.966 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - - - 200 - text/html;+charset=utf-8 97.4576ms
+2023-04-09 00:07:02.026 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/calender.js - -
+2023-04-09 00:07:02.030 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:07:02.033 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:07:02.039 +02:00 [INF] HTTP GET /HomeWork/calender.js responded 404 in 8.9534 ms
+2023-04-09 00:07:02.044 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 13.8333ms
+2023-04-09 00:07:02.049 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/calender.js - - - 404 - - 23.2060ms
+2023-04-09 00:07:02.096 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.4568ms
+2023-04-09 00:07:10.160 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundary7i1d7nRYGx62reO7 20776
+2023-04-09 00:07:10.166 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:07:10.229 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile(ShredKernal.ViewModels.UploadCourseFileViewModel) on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:07:10.238 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:07:13.335 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[CourseName] = @__file_CtegoryName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 00:07:14.870 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CourseName], [c].[LevelId]
+FROM [Courses] AS [c]
+WHERE [c].[CourseName] = @__file_CtegoryName_0
+2023-04-09 00:07:16.202 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CourseFiles] ([CourseId], [FileName], [FilePath])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CourseFiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-09 00:07:16.249 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:07:27.918 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 17680.6342ms
+2023-04-09 00:07:27.921 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:07:27.925 +02:00 [ERR] HTTP POST /HomeWork/UploadFile responded 500 in 17759.6265 ms
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_HomeWork_UploadFile.<ExecuteAsync>b__33_1() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 17
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_HomeWork_UploadFile.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-04-09 00:07:27.986 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_HomeWork_UploadFile.<ExecuteAsync>b__33_1() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 17
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_HomeWork_UploadFile.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-04-09 00:07:28.034 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundary7i1d7nRYGx62reO7 20776 - 500 - text/html;+charset=utf-8 17873.0999ms
+2023-04-09 00:07:28.054 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:07:28.058 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:07:28.063 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.8095ms
+2023-04-09 00:07:28.124 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.2029ms
+2023-04-09 00:08:44.839 +02:00 [INF] Starting Web Host
+2023-04-09 00:08:46.717 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 00:08:47.015 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 00:08:47.018 +02:00 [INF] Hosting environment: Development
+2023-04-09 00:08:47.028 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-04-09 00:08:47.066 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:08:47.144 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:08:47.201 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:08:48.055 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:08:48.117 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:08:48.358 +02:00 [INF] Executed ViewResult - view Index executed in 241.3952ms.
+2023-04-09 00:08:48.367 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1162.8838ms
+2023-04-09 00:08:48.371 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:08:48.377 +02:00 [INF] HTTP GET / responded 200 in 1271.8699 ms
+2023-04-09 00:08:48.429 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1369.7544ms
+2023-04-09 00:08:48.619 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:08:48.630 +02:00 [INF] HTTP GET /calender.js responded 404 in 5.8061 ms
+2023-04-09 00:08:48.637 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 17.0622ms
+2023-04-09 00:08:48.641 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:08:48.654 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.3046ms
+2023-04-09 00:08:48.730 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:08:48.809 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.2085ms
+2023-04-09 00:08:59.225 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:08:59.232 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:08:59.241 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:08:59.277 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:08:59.980 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:09:00.025 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:09:00.102 +02:00 [INF] Executed ViewResult - view Index executed in 78.9431ms.
+2023-04-09 00:09:00.105 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 860.6342ms
+2023-04-09 00:09:00.108 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:09:00.110 +02:00 [INF] HTTP GET /HomeWork responded 200 in 880.1719 ms
+2023-04-09 00:09:00.120 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 200 - text/html;+charset=utf-8 894.5221ms
+2023-04-09 00:09:00.139 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:09:00.139 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:09:00.146 +02:00 [INF] HTTP GET /calender.js responded 404 in 0.2581 ms
+2023-04-09 00:09:00.155 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 16.1940ms
+2023-04-09 00:09:00.163 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:09:00.173 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.3191ms
+2023-04-09 00:09:00.227 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.7072ms
+2023-04-09 00:09:00.736 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - -
+2023-04-09 00:09:00.741 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:09:00.748 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:09:00.757 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:09:00.769 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:09:00.774 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:09:00.815 +02:00 [INF] Executed ViewResult - view UploadFile executed in 41.1596ms.
+2023-04-09 00:09:00.818 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 67.1941ms
+2023-04-09 00:09:00.820 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:09:00.824 +02:00 [INF] HTTP GET /HomeWork/UploadFile responded 200 in 83.1213 ms
+2023-04-09 00:09:00.835 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - - - 200 - text/html;+charset=utf-8 98.1751ms
+2023-04-09 00:09:00.874 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/calender.js - -
+2023-04-09 00:09:00.880 +02:00 [INF] HTTP GET /HomeWork/calender.js responded 404 in 1.7228 ms
+2023-04-09 00:09:00.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/calender.js - - - 404 - - 10.4989ms
+2023-04-09 00:09:00.901 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:09:00.905 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:09:00.911 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.9015ms
+2023-04-09 00:09:00.953 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.4564ms
+2023-04-09 00:09:06.258 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundarybVAb8mMwAiwgmNvy 20775
+2023-04-09 00:09:06.264 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:09:06.299 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile(ShredKernal.ViewModels.UploadCourseFileViewModel) on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:09:06.307 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:09:06.443 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:09:06.841 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[CourseName] = @__file_CtegoryName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 00:09:06.872 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CourseName], [c].[LevelId]
+FROM [Courses] AS [c]
+WHERE [c].[CourseName] = @__file_CtegoryName_0
+2023-04-09 00:09:07.232 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CourseFiles] ([CourseId], [FileName], [FilePath])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CourseFiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-09 00:09:07.305 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:09:32.647 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 26343.8759ms
+2023-04-09 00:09:32.650 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:09:32.654 +02:00 [ERR] HTTP POST /HomeWork/UploadFile responded 500 in 26390.2773 ms
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_HomeWork_UploadFile.<ExecuteAsync>b__33_1() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 17
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_HomeWork_UploadFile.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-04-09 00:09:32.728 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_HomeWork_UploadFile.<ExecuteAsync>b__33_1() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 17
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_HomeWork_UploadFile.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\UploadFile.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-04-09 00:09:32.797 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundarybVAb8mMwAiwgmNvy 20775 - 500 - text/html;+charset=utf-8 26539.2020ms
+2023-04-09 00:09:32.824 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:09:32.830 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:09:32.838 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.3599ms
+2023-04-09 00:09:32.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.0154ms
+2023-04-09 00:12:53.586 +02:00 [INF] Starting Web Host
+2023-04-09 00:12:55.347 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 00:12:55.694 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 00:12:55.708 +02:00 [INF] Hosting environment: Development
+2023-04-09 00:12:55.711 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-04-09 00:12:55.753 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:12:55.819 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:12:55.871 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:12:56.692 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:12:56.774 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:12:57.016 +02:00 [INF] Executed ViewResult - view Index executed in 238.6584ms.
+2023-04-09 00:12:57.024 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1149.0694ms
+2023-04-09 00:12:57.029 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:12:57.037 +02:00 [INF] HTTP GET / responded 200 in 1244.3928 ms
+2023-04-09 00:12:57.086 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1335.9010ms
+2023-04-09 00:12:57.176 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:12:57.179 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:12:57.186 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:12:57.193 +02:00 [INF] HTTP GET /calender.js responded 404 in 6.9107 ms
+2023-04-09 00:12:57.200 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 20.5877ms
+2023-04-09 00:12:57.210 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 22.9617ms
+2023-04-09 00:12:57.266 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.7081ms
+2023-04-09 00:12:58.974 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:12:58.981 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:12:58.990 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:12:59.035 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:12:59.690 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:12:59.730 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:13:00.004 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 1009.8701ms
+2023-04-09 00:13:00.007 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:13:00.010 +02:00 [ERR] HTTP GET /HomeWork responded 500 in 1032.0734 ms
+System.ArgumentNullException: Value cannot be null. (Parameter 'items')
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList..ctor(IEnumerable items, String dataValueField, String dataTextField, IEnumerable selectedValues, String dataGroupField)
+   at Microsoft.AspNetCore.Mvc.Rendering.SelectList..ctor(IEnumerable items, String dataValueField, String dataTextField, Object selectedValue)
+   at Microsoft.AspNetCore.Mvc.Rendering.SelectList..ctor(IEnumerable items, String dataValueField, String dataTextField)
+   at CallSite.Target(Closure , CallSite , Type , Object , String , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute4[T0,T1,T2,T3,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+   at AspNetCore.Views_HomeWork_Index.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\Index.cshtml:line 10
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-04-09 00:13:00.083 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'items')
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList..ctor(IEnumerable items, String dataValueField, String dataTextField, IEnumerable selectedValues, String dataGroupField)
+   at Microsoft.AspNetCore.Mvc.Rendering.SelectList..ctor(IEnumerable items, String dataValueField, String dataTextField, Object selectedValue)
+   at Microsoft.AspNetCore.Mvc.Rendering.SelectList..ctor(IEnumerable items, String dataValueField, String dataTextField)
+   at CallSite.Target(Closure , CallSite , Type , Object , String , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute4[T0,T1,T2,T3,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+   at AspNetCore.Views_HomeWork_Index.ExecuteAsync() in E:\ADVANCED TLEVEL\Project\Project\Views\HomeWork\Index.cshtml:line 10
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-04-09 00:13:00.151 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 500 - text/html;+charset=utf-8 1177.2718ms
+2023-04-09 00:13:00.176 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:13:00.176 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:13:00.187 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.6836ms
+2023-04-09 00:13:00.235 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.4005ms
+2023-04-09 00:14:46.746 +02:00 [INF] Starting Web Host
+2023-04-09 00:14:48.858 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 00:14:49.159 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 00:14:49.162 +02:00 [INF] Hosting environment: Development
+2023-04-09 00:14:49.173 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-04-09 00:14:49.202 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:14:49.268 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:14:49.321 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:14:50.301 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:14:50.370 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:14:50.658 +02:00 [INF] Executed ViewResult - view Index executed in 288.3689ms.
+2023-04-09 00:14:50.665 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1340.9357ms
+2023-04-09 00:14:50.669 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:14:50.674 +02:00 [INF] HTTP GET / responded 200 in 1437.3006 ms
+2023-04-09 00:14:50.734 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1533.9576ms
+2023-04-09 00:14:50.838 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:14:50.844 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:14:50.844 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:14:50.855 +02:00 [INF] HTTP GET /calender.js responded 404 in 9.5830 ms
+2023-04-09 00:14:50.862 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 24.3573ms
+2023-04-09 00:14:50.872 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 22.9542ms
+2023-04-09 00:14:50.944 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.3648ms
+2023-04-09 00:15:08.051 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:15:08.059 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:15:08.070 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:15:08.113 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:15:08.775 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:15:08.820 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:15:08.929 +02:00 [INF] Executed ViewResult - view Index executed in 110.5578ms.
+2023-04-09 00:15:08.933 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 859.2858ms
+2023-04-09 00:15:08.936 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:15:08.940 +02:00 [INF] HTTP GET /HomeWork responded 200 in 882.8779 ms
+2023-04-09 00:15:08.955 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 200 - text/html;+charset=utf-8 904.1389ms
+2023-04-09 00:15:08.978 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:15:08.982 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:15:08.982 +02:00 [INF] HTTP GET /calender.js responded 404 in 0.1961 ms
+2023-04-09 00:15:08.990 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 12.1337ms
+2023-04-09 00:15:09.002 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:15:09.010 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 7.8886ms
+2023-04-09 00:15:09.045 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.5024ms
+2023-04-09 00:15:10.646 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/GetCources?levelId=1 - -
+2023-04-09 00:15:10.649 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.GetCources (Project)'
+2023-04-09 00:15:10.662 +02:00 [INF] Route matched with {action = "GetCources", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCources(Int32) on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:15:10.673 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:15:10.833 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[@__levelId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CourseName], [c].[LevelId]
+FROM [Courses] AS [c]
+WHERE [c].[LevelId] = @__levelId_0
+2023-04-09 00:15:10.846 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DomainLayer.Models.Course, DomainLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-04-09 00:15:10.884 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.GetCources (Project) in 217.7748ms
+2023-04-09 00:15:10.887 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.GetCources (Project)'
+2023-04-09 00:15:10.890 +02:00 [INF] HTTP GET /HomeWork/GetCources responded 200 in 241.3951 ms
+2023-04-09 00:15:10.893 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/GetCources?levelId=1 - - - 200 - application/json;+charset=utf-8 247.1229ms
+2023-04-09 00:15:12.657 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - -
+2023-04-09 00:15:12.663 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:15:12.668 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:15:12.676 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:15:12.687 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:15:12.699 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:15:12.745 +02:00 [INF] Executed ViewResult - view UploadFile executed in 46.805ms.
+2023-04-09 00:15:12.748 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 75.2989ms
+2023-04-09 00:15:12.750 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:15:12.753 +02:00 [INF] HTTP GET /HomeWork/UploadFile responded 200 in 91.1898 ms
+2023-04-09 00:15:12.763 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/UploadFile - - - 200 - text/html;+charset=utf-8 105.7815ms
+2023-04-09 00:15:12.784 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/calender.js - -
+2023-04-09 00:15:12.787 +02:00 [INF] HTTP GET /HomeWork/calender.js responded 404 in 0.1355 ms
+2023-04-09 00:15:12.792 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/calender.js - - - 404 - - 8.3840ms
+2023-04-09 00:15:12.829 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:15:12.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:15:12.838 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.7445ms
+2023-04-09 00:15:12.879 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.6868ms
+2023-04-09 00:15:20.464 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundary1m8qGDAoFFNVehQH 20775
+2023-04-09 00:15:20.469 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:15:20.482 +02:00 [INF] Route matched with {action = "UploadFile", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile(ShredKernal.ViewModels.UploadCourseFileViewModel) on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:15:20.485 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:15:20.527 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:15:20.601 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[CourseName] = @__file_CtegoryName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 00:15:20.625 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__file_CtegoryName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CourseName], [c].[LevelId]
+FROM [Courses] AS [c]
+WHERE [c].[CourseName] = @__file_CtegoryName_0
+2023-04-09 00:15:20.833 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CourseFiles] ([CourseId], [FileName], [FilePath])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CourseFiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-09 00:15:20.897 +02:00 [INF] Executing ViewResult, running view UploadFile.
+2023-04-09 00:15:20.915 +02:00 [INF] Executed ViewResult - view UploadFile executed in 18.4097ms.
+2023-04-09 00:15:20.919 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.UploadFile (Project) in 433.7964ms
+2023-04-09 00:15:20.923 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.UploadFile (Project)'
+2023-04-09 00:15:20.926 +02:00 [INF] HTTP POST /HomeWork/UploadFile responded 200 in 456.8416 ms
+2023-04-09 00:15:20.939 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44384/HomeWork/UploadFile multipart/form-data;+boundary=----WebKitFormBoundary1m8qGDAoFFNVehQH 20775 - 200 - text/html;+charset=utf-8 474.1865ms
+2023-04-09 00:15:20.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork/calender.js - -
+2023-04-09 00:15:20.992 +02:00 [INF] HTTP GET /HomeWork/calender.js responded 404 in 0.2382 ms
+2023-04-09 00:15:20.997 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork/calender.js - - - 404 - - 9.6470ms
+2023-04-09 00:15:21.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:15:21.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:15:21.029 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 8.8294ms
+2023-04-09 00:15:21.079 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.6826ms
+2023-04-09 00:20:24.276 +02:00 [INF] Starting Web Host
+2023-04-09 00:20:26.915 +02:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 00:20:27.209 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 00:20:27.218 +02:00 [INF] Hosting environment: Development
+2023-04-09 00:20:27.221 +02:00 [INF] Content root path: E:\ADVANCED TLEVEL\Project\Project
+2023-04-09 00:20:27.266 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:20:27.349 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:27.394 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:20:28.276 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:28.333 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:20:28.797 +02:00 [INF] Executed ViewResult - view Index executed in 466.6717ms.
+2023-04-09 00:20:28.816 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 1418.2977ms
+2023-04-09 00:20:28.820 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:28.829 +02:00 [INF] HTTP GET / responded 200 in 1524.1651 ms
+2023-04-09 00:20:28.880 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 1619.2598ms
+2023-04-09 00:20:28.983 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:20:28.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:28.992 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:29.000 +02:00 [INF] HTTP GET /calender.js responded 404 in 10.3761 ms
+2023-04-09 00:20:29.006 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 23.1860ms
+2023-04-09 00:20:29.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 23.3632ms
+2023-04-09 00:20:29.074 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.0016ms
+2023-04-09 00:20:32.976 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:20:32.982 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:32.985 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:20:33.013 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:33.018 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:20:33.041 +02:00 [INF] Executed ViewResult - view Index executed in 22.3989ms.
+2023-04-09 00:20:33.043 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 55.7799ms
+2023-04-09 00:20:33.046 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:33.048 +02:00 [INF] HTTP GET / responded 200 in 68.5602 ms
+2023-04-09 00:20:33.060 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 84.5068ms
+2023-04-09 00:20:33.081 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:20:33.085 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:33.092 +02:00 [INF] HTTP GET /calender.js responded 404 in 6.4258 ms
+2023-04-09 00:20:33.099 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 16.4119ms
+2023-04-09 00:20:33.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:33.116 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 6.7637ms
+2023-04-09 00:20:33.151 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.1351ms
+2023-04-09 00:20:33.311 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/favicon.ico - -
+2023-04-09 00:20:33.356 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'E:\ADVANCED TLEVEL\Project\Project\wwwroot\favicon.ico'
+2023-04-09 00:20:33.360 +02:00 [INF] HTTP GET /favicon.ico responded 200 in 44.1849 ms
+2023-04-09 00:20:33.364 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/favicon.ico - - - 200 5430 image/x-icon 53.1828ms
+2023-04-09 00:20:35.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:20:35.675 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:35.679 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:20:35.695 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:35.699 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:20:35.712 +02:00 [INF] Executed ViewResult - view Index executed in 12.3626ms.
+2023-04-09 00:20:35.715 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 32.398ms
+2023-04-09 00:20:35.718 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:35.722 +02:00 [INF] HTTP GET / responded 200 in 46.2601 ms
+2023-04-09 00:20:35.734 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 61.9677ms
+2023-04-09 00:20:35.749 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:20:35.753 +02:00 [INF] HTTP GET /calender.js responded 404 in 0.1862 ms
+2023-04-09 00:20:35.758 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 8.2492ms
+2023-04-09 00:20:35.770 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:35.775 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 5.2701ms
+2023-04-09 00:20:35.795 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:35.845 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.7630ms
+2023-04-09 00:20:36.821 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/GetMaterilas - -
+2023-04-09 00:20:36.829 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-04-09 00:20:36.841 +02:00 [INF] Route matched with {action = "GetMaterilas", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMaterilas() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:20:36.845 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:37.656 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CategoryName], [c].[IsDeleted], [m].[Id], [m].[CategoryId], [m].[FileName], [m].[FilePath], [m].[IsDeleted]
+FROM [Category] AS [c]
+LEFT JOIN [Material] AS [m] ON [c].[Id] = [m].[CategoryId]
+WHERE [c].[IsDeleted] <> CAST(1 AS bit)
+ORDER BY [c].[Id], [m].[Id]
+2023-04-09 00:20:37.704 +02:00 [INF] Executing ViewResult, running view GetMaterilas.
+2023-04-09 00:20:37.725 +02:00 [INF] Executed ViewResult - view GetMaterilas executed in 22.1985ms.
+2023-04-09 00:20:37.728 +02:00 [INF] Executed action Project.Controllers.HomeController.GetMaterilas (Project) in 883.6157ms
+2023-04-09 00:20:37.731 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.GetMaterilas (Project)'
+2023-04-09 00:20:37.733 +02:00 [INF] HTTP GET /Home/GetMaterilas responded 200 in 903.8681 ms
+2023-04-09 00:20:37.747 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/GetMaterilas - - - 200 - text/html;+charset=utf-8 925.5758ms
+2023-04-09 00:20:37.765 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/images/images.png - -
+2023-04-09 00:20:37.765 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/Home/calender.js - -
+2023-04-09 00:20:37.776 +02:00 [INF] The file /images/images.png was not modified
+2023-04-09 00:20:37.781 +02:00 [INF] HTTP GET /Home/calender.js responded 404 in 7.2302 ms
+2023-04-09 00:20:37.783 +02:00 [INF] HTTP GET /images/images.png responded 304 in 11.7425 ms
+2023-04-09 00:20:37.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/images/images.png - - - 304 - image/png 24.2839ms
+2023-04-09 00:20:37.792 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/Home/calender.js - - - 404 - - 26.8490ms
+2023-04-09 00:20:37.819 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:37.824 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:37.833 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 12.2769ms
+2023-04-09 00:20:37.879 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.6355ms
+2023-04-09 00:20:38.450 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/ - -
+2023-04-09 00:20:38.455 +02:00 [INF] Executing endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:38.457 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Project.Controllers.HomeController (Project).
+2023-04-09 00:20:38.461 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:38.465 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:20:38.476 +02:00 [INF] Executed ViewResult - view Index executed in 10.9878ms.
+2023-04-09 00:20:38.480 +02:00 [INF] Executed action Project.Controllers.HomeController.Index (Project) in 18.983ms
+2023-04-09 00:20:38.483 +02:00 [INF] Executed endpoint 'Project.Controllers.HomeController.Index (Project)'
+2023-04-09 00:20:38.489 +02:00 [INF] HTTP GET / responded 200 in 34.1094 ms
+2023-04-09 00:20:38.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/ - - - 200 - text/html;+charset=utf-8 55.5948ms
+2023-04-09 00:20:38.541 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:20:38.546 +02:00 [INF] HTTP GET /calender.js responded 404 in 0.1721 ms
+2023-04-09 00:20:38.552 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 10.6544ms
+2023-04-09 00:20:38.570 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:38.572 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:38.581 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.1373ms
+2023-04-09 00:20:38.621 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.4776ms
+2023-04-09 00:20:41.908 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/HomeWork - -
+2023-04-09 00:20:41.913 +02:00 [INF] Executing endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:20:41.920 +02:00 [INF] Route matched with {action = "Index", controller = "HomeWork"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Project.Views.Attendance.HomeWorkController (Project).
+2023-04-09 00:20:41.924 +02:00 [INF] Entity Framework Core 5.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2023-04-09 00:20:41.941 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[LevelName]
+FROM [Level] AS [l]
+2023-04-09 00:20:41.947 +02:00 [INF] Executing ViewResult, running view Index.
+2023-04-09 00:20:42.044 +02:00 [INF] Executed ViewResult - view Index executed in 98.572ms.
+2023-04-09 00:20:42.047 +02:00 [INF] Executed action Project.Views.Attendance.HomeWorkController.Index (Project) in 123.6533ms
+2023-04-09 00:20:42.049 +02:00 [INF] Executed endpoint 'Project.Views.Attendance.HomeWorkController.Index (Project)'
+2023-04-09 00:20:42.051 +02:00 [INF] HTTP GET /HomeWork responded 200 in 138.4371 ms
+2023-04-09 00:20:42.063 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/HomeWork - - - 200 - text/html;+charset=utf-8 155.2010ms
+2023-04-09 00:20:42.078 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/calender.js - -
+2023-04-09 00:20:42.083 +02:00 [INF] HTTP GET /calender.js responded 404 in 0.3153 ms
+2023-04-09 00:20:42.088 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/calender.js - - - 404 - - 10.0260ms
+2023-04-09 00:20:42.103 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 00:20:42.108 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 5.4162ms
+2023-04-09 00:20:42.129 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - -
+2023-04-09 00:20:42.175 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.8275ms

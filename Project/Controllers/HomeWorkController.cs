@@ -26,6 +26,33 @@ namespace Project.Views.Attendance
             var cources = await CourseService.GetCourses(x=>x.LevelId==levelId);
             return Ok(cources);
         }
+        public async Task<IActionResult> UploadFile()
+        {
 
+
+            var result =  await LevelService.GetAllLevels();
+            UploadCourseFileViewModel level = new UploadCourseFileViewModel() { Levels = result };
+          
+            ViewBag.level = level;
+            return View(level);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadFile(UploadCourseFileViewModel uploadedFile)
+        {
+            var result = await LevelService.GetAllLevels();
+            UploadCourseFileViewModel level = new UploadCourseFileViewModel() { Levels = result };
+           
+
+            if (ModelState.IsValid)
+            {
+                var response = await CourseService.UploadFile(uploadedFile);
+                //ViewBag.IsValidResponse = response.IsValidResponse;
+                //ViewBag.cmdMessage = response.CommandMessage;
+              //  CourseService.Success($"New File Added");
+
+            }
+
+            return View(level);
+        }
     }
 }

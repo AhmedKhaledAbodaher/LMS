@@ -1,8 +1,10 @@
 ﻿@model ShredKernal.ViewModels.LevelViewModel ;
 @{
-    ViewData["Title"] = "HomeWork Page";
+    ViewData["Title"] = "HomeWork Page"; 
+    var Levels = ViewBag.level;
 }
 
+<a class="btn btn-info float-start" asp-action="UploadFile">Upload File </a>
 <div class="form-group">
     <label asp-for="LevelId" class="form-label mt-4">Select Level </label>
     <select asp-for="LevelId" asp-items="@(new SelectList(Model.Levels,"Id","LevelName"))" class="form-select" >
