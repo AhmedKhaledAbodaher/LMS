@@ -13,5 +13,6 @@ namespace ShredKernal.ViewModels
         public int CourselId { get; set; }
         public List<Level> Levels { get; set; }
         public List<Course> Courses { get; set; } = new List<Course>();
+        public List<CourseFiles> CourseFiles { get; set; } = new List<CourseFiles>();
     }
 }

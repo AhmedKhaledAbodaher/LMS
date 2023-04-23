@@ -13,6 +13,7 @@ namespace ServiceLayer.Service.CourceService
     public interface ICourseService
     {
         Task<List<Course>> GetCourses(Expression<Func<Course,bool>> func);
+        Task<List<CourseFiles>> GetCoursesFiles(int courseId);
         Task<ApiResponse<bool>> UploadFile(UploadCourseFileViewModel file);
 
     }

@@ -12,6 +12,8 @@ namespace DomainLayer.Models
         public string FileName { get; set; }
         public string FilePath { get; set; }
         public Course Course { get; set; }
-        public int CourseId { get; set; }
+        public int CourseId { get; set; }   
+        public CourseFileType CourseFileType { get; set; }
+        public int CourseFileTypeId { get; set; }
     }
 }

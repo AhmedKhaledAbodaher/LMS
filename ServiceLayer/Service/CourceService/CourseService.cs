@@ -41,6 +41,11 @@ namespace ServiceLayer.Service.CourceService
         public async Task<List<Course>> GetCourses(Expression<Func<Course, bool>> func)
         {
             return await Course.GetWhereAsync(func);
+        }  
+        public async Task<List<CourseFiles>> GetCoursesFiles(int courseId)
+        {
+            return await CourseFile.GetWhereAsync(x=>x.CourseId==courseId);
+            
         }
 
         public async Task<ApiResponse<bool>> UploadFile(UploadCourseFileViewModel file)
@@ -81,7 +86,8 @@ namespace ServiceLayer.Service.CourceService
                             FilePath = UniqueFileNane,
                             Course = new Course()
                             {
-                                CourseName = file.CtegoryName
+                                CourseName = file.CtegoryName,
+                                LevelId=file.LevelId
                             }
                         };
                         await CourseFile.InsertAsync(material);
